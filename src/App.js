@@ -156,7 +156,7 @@ class App extends Component {
     //     {/* {this._authorize()} */}
     return (
        <SafeAreaView style={{ flex: 1 }}>
-          <View style={{ flex: 1, marginTop: Platform.OS === "ios" ? 0 : 0 }}>
+          <View style={{ flex: 1}}>
               <Provider store={store}>
            <Router />
          </Provider>
