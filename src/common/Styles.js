@@ -1,30 +1,36 @@
 import { StyleSheet } from 'react-native'
-  
- const Styles = StyleSheet.create({ 
-   container: {                       
-     marginTop: 150,
-     backgroundColor: '#ededed',
-     flexWrap: 'wrap'
-   },
-   input: {
+
+const Styles = StyleSheet.create({
+  container: {
+    marginTop: 150,
+    backgroundColor: '#ededed',
+    flexWrap: 'wrap'
+  },
+  input: {
     paddingHorizontal: 10,
-    fontSize:17
+    fontSize: 17
   },
-  black:{
-    color:"#000"
+  black: {
+    color: "#000"
   },
-  white:{
-    color:"#FFF"
+  white: {
+    color: "#FFF"
   },
-  subText1:{
-      color:"#007AFF",
-      fontSize: 12,
-      fontWeight: 'bold',
+  brown: {
+    color: "#333333"
   },
-  subText2:{
-    color:"#007AFF",
+  subText1: {
+    color: "#007AFF",
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  subText2: {
+    color: "#007AFF",
     fontSize: 14,
     fontWeight: 'bold',
+  },
+  center: {
+    alignContent: "center", alignItems: "center", justifyContent: "center"
   },
   button: {
     alignItems: "center",
@@ -51,23 +57,23 @@ import { StyleSheet } from 'react-native'
     //   }
     // })
   },
-  headerContainer:{
-    
+  headerContainer: {
+
   }
- });
-  
- const buttons = StyleSheet.create({ 
-   primary: {                      
-     flex: 1,
-     height: 70,
-     backgroundColor: 'red',
-     justifyContent: 'center',
-     alignItems: 'center',
-     marginLeft: 20,
-     marginRight: 20
-   }
- });
+});
+
+const buttons = StyleSheet.create({
+  primary: {
+    flex: 1,
+    height: 70,
+    backgroundColor: 'red',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 20,
+    marginRight: 20
+  }
+});
 
 
-  
- export { Styles, buttons }
+
+export { Styles, buttons }

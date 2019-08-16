@@ -9,10 +9,12 @@ import {
   import Login from "./Login";
   import AuthLoadingScreen from "./AuthLoadingScreen";
   import Inventory from "./Components/HomePage/Inventory";
+  import EditPage from "./Components/EditPage/EditPage";
 
   const LoginStackNew = createStackNavigator(
     {
       Inventory: { screen: Inventory },
+      EditPage: { screen: EditPage}
     },
     {
       initialRouteName: "Inventory",

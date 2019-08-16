@@ -1,39 +1,45 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native';
-import { Container, Header, Content, Accordion, Left,Button,Icon,Body, Title,Right } from "native-base";
-const dataArray = [
-  { title: "First Element", content: "Lorem ipsum dolor sit amet" },
-  { title: "Second Element", content: "Lorem ipsum dolor sit amet" },
-  { title: "Third Element", content: "Lorem ipsum dolor sit amet" }
-];
- class Inventory extends Component {
+import { View, Text, ImageBackground } from 'react-native';
+import { Container, Header, Content, Accordion, List, Left, Button, Icon, Body, Title, Right } from "native-base";
+import Item from "./Item";
+import Head from "./Head";
+
+class Inventory extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      trdt: ""
+    };
+  }
   render() {
+    const dataArray = [
+      { title: "First Element", content: "Lorem ipsum dolor sit amet" },
+      { title: "Second Element", content: "Lorem ipsum dolor sit amet" },
+      { title: "Third Element", content: "Lorem ipsum dolor sit amet" }
+    ];
     return (
       // <View>
       //   <Text>r</Text>
       //   </View>
+
       <Container>
-      <Header style={{height:50, marginTop: -40}} >
-      <Left>
-            <Button transparent>
-              <Icon name='arrow-back' />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Inventory</Title>
-          </Body>
-          <Right>
-          <Button transparent>
-              <Icon name='search' />
-            </Button>
-            <Button transparent>
-              <Icon name='heart' />
-            </Button>
-            <Button transparent>
-              <Icon name='more' />
-            </Button>
-          </Right>
-      </Header>
+        <Head navigation={this.props.navigation}/>
+        <ImageBackground style={{
+          flex: 1
+        }}
+          resizeMode="center" source={require("../../Img/logo_background.png")}>
+          <Content >
+            <List style={{backgroundColor:"#FFF"}}>
+              {dataArray.map(item => {
+                return (
+                  <Item />
+                );
+              })}
+
+            </List>
+
+          </Content>
+        </ImageBackground>
       </Container>
     )
   }
