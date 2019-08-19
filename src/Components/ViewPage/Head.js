@@ -10,15 +10,16 @@ class Head extends Component {
                 <Header style={{marginTop:-20, borderBottomWidth: 3, borderBottomColor: Constants.BROWN }} >
                     <Left>
                         <Button transparent>
-                            <Text style={{color:"#222222", fontSize:17}}>Cancel</Text>
+                            <Icon name='arrow-back' />
+                            <Text style={{color:"#007AFF", fontSize:18}}> Back</Text>
                         </Button>
                     </Left>
                     <Body>
-                        <Title>Add Info</Title>
+                        <Title>Details</Title>
                     </Body>
                     <Right>
                         <Button transparent onPress={() => this.props.onSubmit()}>
-                            <Text style={{fontSize:17, fontWeight:"bold", color:Constants.BLUE}}>Save</Text>
+                            <Text style={{fontSize:18, fontWeight:"bold", color:Constants.BLUE}}>Edit</Text>
                         </Button>
                     </Right>
                 </Header>

@@ -30,9 +30,9 @@ class Inventory extends Component {
           resizeMode="center" source={require("../../Img/logo_background.png")}>
           <Content >
             <List style={{backgroundColor:"#FFF"}}>
-              {dataArray.map(item => {
+              {dataArray.map((item,index) => {
                 return (
-                  <Item />
+                  <Item key={index}  />
                 );
               })}
 

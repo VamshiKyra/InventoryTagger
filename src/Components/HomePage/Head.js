@@ -13,7 +13,7 @@ class Head extends Component {
     render() {
         return (
             <View>
-                <Header style={{ height: 60, marginTop: -50, borderBottomWidth: 3, borderBottomColor: Constants.BROWN }} >
+                <Header style={{ marginTop:-20, borderBottomWidth: 3, borderBottomColor: Constants.BROWN }} >
                     <Left>
                         <Button transparent>
                             <Thumbnail square style={{ height: 31, width: 100 }} source={require('../../Img/inventor_tagger.png')} />
@@ -29,7 +29,7 @@ class Head extends Component {
                         </Button>
                     </Right>
                 </Header>
-                <Header searchBar style={{ marginTop: 0, paddingTop: 0, height: 30, paddingBottom: 20, backgroundColor: "#F6F6F6" }}>
+                <Header searchBar style={{ marginTop: 0, paddingTop: 0, backgroundColor: "#F6F6F6" }}>
                     <Item style={{ backgroundColor: "#FFF", borderWidth: 1, borderTopWidth: 1, borderLeftWidth: 1, borderRightWidth: 1, borderColor: "#C6C4C0", height: 36, marginRight: 5, borderRadius: 5 }}>
                         <Icon name="ios-search" style={{ fontSize: 16 }} />
                         <Input placeholder="Search" />
