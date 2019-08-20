@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'EmergencyManagementInventory' do
-  # Pods for EmergencyManagementInventory
+target 'InventoryTagger' do
+  # Pods for InventoryTagger
   react_native_path = "../node_modules/react-native"  
   pod 'React', :path => '../node_modules/react-native'
   pod 'React-Core', :path => '../node_modules/react-native/React'
@@ -28,9 +28,14 @@ target 'EmergencyManagementInventory' do
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+  pod 'Firebase/Core', '~> 6.3.0'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'
 
-
-  target 'EmergencyManagementInventoryTests' do
+  target 'InventoryTaggerTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -38,10 +43,10 @@ target 'EmergencyManagementInventory' do
   use_native_modules!
 end
 
-target 'EmergencyManagementInventory-tvOS' do
-  # Pods for EmergencyManagementInventory-tvOS
+target 'InventoryTagger-tvOS' do
+  # Pods for InventoryTagger-tvOS
 
-  target 'EmergencyManagementInventory-tvOSTests' do
+  target 'InventoryTagger-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

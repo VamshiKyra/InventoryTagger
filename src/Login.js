@@ -17,10 +17,8 @@ import {
 } from "react-native";
 import { StackActions, NavigationActions } from "react-navigation";
 import { connect } from "react-redux";
-import {
-  emailChanged,
-} from "./actions";
-import {Spinner, Styles, Button} from "./common";
+import { emailChange, passwordChange, loginUser } from "./actions";
+import { Spinner, Styles, Button } from "./common";
 const { width, height } = Dimensions.get("window");
 const background = require("./Img/background.png");
 class Login extends Component {
@@ -44,12 +42,13 @@ class Login extends Component {
   //   // }
   // }
   onEmailChange(text) {
-    // this.props.emailChanged(text);
+    this.props.emailChange(text);
   }
   onPasswordChange(text) {
-    // this.props.passwordChanged(text);
+    this.props.passwordChange(text);
   }
   onButtonPress() {
+    console.log(this.props);
     // const email = this.props.email;
     // const password = this.props.password;
     // const navigation = this.props.navigation;
@@ -60,34 +59,34 @@ class Login extends Component {
     // }
   }
 
-//   componentWillMount() {
-//     TouchID.isSupported()
-//       .then(biometryType => {
-//         console.log("WE WANT THIS BIOMETRY", biometryType);
-//         if (biometryType === "FaceID") {
-//           console.log("FaceID is supported.");
-//           this.setState({ biometryType: "Enable FaceID" });
-//         }
-//         if (biometryType === "TouchID" || biometryType == true) {
-//           console.log("TouchID is supported.");
-//           this.setState({ biometryType: "Enable TouchID" });
-//         }
-//         if (biometryType === "") {
-//           console.log("TouchID not supported");
-//         }
-//       })
-//       .catch(e => console.log("TouchID not supported"));
-//     console.log(this.state.biometryType);
-//     AsyncStorage.getItem("touchid")
-//       .then(res => {
-//         console.log(res);
-//         if (res == "true") {
-//           this.setState({ fingerSwitch: true });
-//           this.authenticate();
-//         }
-//       })
-//       .catch(e => console.log(e));
-//   }
+  //   componentWillMount() {
+  //     TouchID.isSupported()
+  //       .then(biometryType => {
+  //         console.log("WE WANT THIS BIOMETRY", biometryType);
+  //         if (biometryType === "FaceID") {
+  //           console.log("FaceID is supported.");
+  //           this.setState({ biometryType: "Enable FaceID" });
+  //         }
+  //         if (biometryType === "TouchID" || biometryType == true) {
+  //           console.log("TouchID is supported.");
+  //           this.setState({ biometryType: "Enable TouchID" });
+  //         }
+  //         if (biometryType === "") {
+  //           console.log("TouchID not supported");
+  //         }
+  //       })
+  //       .catch(e => console.log("TouchID not supported"));
+  //     console.log(this.state.biometryType);
+  //     AsyncStorage.getItem("touchid")
+  //       .then(res => {
+  //         console.log(res);
+  //         if (res == "true") {
+  //           this.setState({ fingerSwitch: true });
+  //           this.authenticate();
+  //         }
+  //       })
+  //       .catch(e => console.log(e));
+  //   }
   // switchChange() {
   //   // if (this.state.fingerSwitch === false) {
   //   //   this.setState({ fingerSwitch: true });
@@ -113,100 +112,101 @@ class Login extends Component {
   //   //   .catch(e => console.log(e));
   // }
 
-//   _pressHandler() {
-//     this.authenticate();
-//     console.log("pressHandler");
-//     TouchID.isSupported()
-//       .then(biometryType => {
-//         console.log(biometryType);
-//         if (biometryType === "FaceID") {
-//           console.log("FaceID is supported.");
-//           this.setState({ biometryType: "Enable FaceID" });
-//           this.authenticate();
-//         }
-//         if (biometryType === "TouchID") {
-//           console.log("TouchID is supported.");
-//           this.setState({ biometryType: "Enable TouchID" });
-//           this.authenticate();
-//         }
-//         if (biometryType === "") {
-//           console.log("TouchID not supported");
-//         }
-//       })
-//       .catch(error => {
-//         console.log("TouchID not supported error");
-//       });
-//   }
-//   authenticate() {
-//     return TouchID.authenticate()
-//       .then(success => {
-//         //AlertIOS.alert("Authenticated Successfully");
-//         console.log("TouchID");
-//         this.retrieveData();
-//       })
-//       .catch(error => {
-//         console.log(error.message);
-//         //AlertIOS.alert(error.message);
-//       });
-//   }
+  //   _pressHandler() {
+  //     this.authenticate();
+  //     console.log("pressHandler");
+  //     TouchID.isSupported()
+  //       .then(biometryType => {
+  //         console.log(biometryType);
+  //         if (biometryType === "FaceID") {
+  //           console.log("FaceID is supported.");
+  //           this.setState({ biometryType: "Enable FaceID" });
+  //           this.authenticate();
+  //         }
+  //         if (biometryType === "TouchID") {
+  //           console.log("TouchID is supported.");
+  //           this.setState({ biometryType: "Enable TouchID" });
+  //           this.authenticate();
+  //         }
+  //         if (biometryType === "") {
+  //           console.log("TouchID not supported");
+  //         }
+  //       })
+  //       .catch(error => {
+  //         console.log("TouchID not supported error");
+  //       });
+  //   }
+  //   authenticate() {
+  //     return TouchID.authenticate()
+  //       .then(success => {
+  //         //AlertIOS.alert("Authenticated Successfully");
+  //         console.log("TouchID");
+  //         this.retrieveData();
+  //       })
+  //       .catch(error => {
+  //         console.log(error.message);
+  //         //AlertIOS.alert(error.message);
+  //       });
+  //   }
 
-//   retrieveData() {
-//     console.log("retrieveData");
-//     AsyncStorage.getItem("email")
-//       .then(res => {
-//         console.log("EMAIL");
-//         console.log(res);
-//         if (res && res.length > 0) {
-//           this.onEmailChange(res);
-//         }
-//       })
-//       .catch(e => console.log(e));
+  //   retrieveData() {
+  //     console.log("retrieveData");
+  //     AsyncStorage.getItem("email")
+  //       .then(res => {
+  //         console.log("EMAIL");
+  //         console.log(res);
+  //         if (res && res.length > 0) {
+  //           this.onEmailChange(res);
+  //         }
+  //       })
+  //       .catch(e => console.log(e));
 
-//     AsyncStorage.getItem("password")
-//       .then(res => {
-//         console.log(res);
-//         console.log("PASSWORD");
-//         if (res && res.length > 0) {
-//           this.onPasswordChange(res);
-//         }
-//         if (this.props.email && this.props.password) {
-//           console.log("button press");
-//           this.onButtonPress();
-//         }
-//       })
-//       .catch(e => console.log(e));
+  //     AsyncStorage.getItem("password")
+  //       .then(res => {
+  //         console.log(res);
+  //         console.log("PASSWORD");
+  //         if (res && res.length > 0) {
+  //           this.onPasswordChange(res);
+  //         }
+  //         if (this.props.email && this.props.password) {
+  //           console.log("button press");
+  //           this.onButtonPress();
+  //         }
+  //       })
+  //       .catch(e => console.log(e));
 
-//     AsyncStorage.getItem("accesstoken")
-//       .then(res => {
-//         console.log(res);
-//         console.log("ACCESSTOKEN");
-//         if (res) {
-//           let navigation = this.props.navigation;
-//           this.props.fbTouch(res, navigation);
-//         }
-//       })
-//       .catch(e => console.log(e));
+  //     AsyncStorage.getItem("accesstoken")
+  //       .then(res => {
+  //         console.log(res);
+  //         console.log("ACCESSTOKEN");
+  //         if (res) {
+  //           let navigation = this.props.navigation;
+  //           this.props.fbTouch(res, navigation);
+  //         }
+  //       })
+  //       .catch(e => console.log(e));
 
-//     AsyncStorage.getItem("googleAccess")
-//       .then(res => {
-//         console.log("googleAccess ");
-//         console.log(res);
-//         const googleAccess = res;
-//         if (res) {
-//           AsyncStorage.getItem("idToken")
-//             .then(res => {
-//               const idToken = res;
-//               let navigation = this.props.navigation;
-//             })
-//             .catch(e => console.log(e));
-//         }
-//       })
-//       .catch(e => console.log(e));
-//   }
+  //     AsyncStorage.getItem("googleAccess")
+  //       .then(res => {
+  //         console.log("googleAccess ");
+  //         console.log(res);
+  //         const googleAccess = res;
+  //         if (res) {
+  //           AsyncStorage.getItem("idToken")
+  //             .then(res => {
+  //               const idToken = res;
+  //               let navigation = this.props.navigation;
+  //             })
+  //             .catch(e => console.log(e));
+  //         }
+  //       })
+  //       .catch(e => console.log(e));
+  //   }
 
-  onSignIn(){
-    console.log("signin");
-    this.props.navigation.navigate("Navigation");
+  onSignIn() {
+    console.log("signin", this.props);
+    this.props.loginUser(this.props);
+    // this.props.navigation.navigate("Navigation");
   }
   render() {
     return (
@@ -215,112 +215,106 @@ class Login extends Component {
         style={styles.background}
         resizeMode="cover"
       >
-          <View style={styles.mainContainer}>
-            <View style={styles.markWrap}>
-            <Image source={require('./Img/logo.png')} style={{width:110,height:143}}/>
-              {/* <View style={styles.titleContainer}>
+        <View style={styles.mainContainer}>
+          <View style={styles.markWrap}>
+            <Image
+              source={require("./Img/logo.png")}
+              style={{ width: 110, height: 143 }}
+            />
+            {/* <View style={styles.titleContainer}>
                 <Text style={styles.titleText}>EXPLORE</Text>
                 <View style={styles.subContainer}>
                   <Text style={styles.subtitleText}>FLORIDA</Text>
                 </View>
               </View> */}
-            </View>
-            <View>
-              <KeyboardAvoidingView behavior="padding" style={styles.wrapper}>
-                <View style={styles.inputWrap}>
-                  <TextInput
-                    placeholder="Email"
-                    placeholderTextColor="#000"
-                    style={[Styles.input, styles.blackFont]}
-                    //onChangeText={Email => this.setState({ Email })}
-                    onChangeText={this.onEmailChange.bind(this)}
-                    value={this.props.email}
-                    onSubmitEditing={() => this.passwordInput.focus()}
-                    returnKeyType="next"
-                    keyboardType="email-address"
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                  />
-                </View>
-                <View style={styles.inputWrap}>
-                  <TextInput
-                    placeholderTextColor="#000"
-                    placeholder="Password"
-                    style={[Styles.input, styles.blackFont]}
-                    //onChangeText={Password => this.setState({ Password })}
-                    onChangeText={this.onPasswordChange.bind(this)}
-                    //value={this.state.Password}
-                    ref={input => (this.passwordInput = input)}
-                    value={this.props.password}
-                    returnKeyType="go"
-                    onSubmitEditing={this.onButtonPress.bind(this)}
-                    secureTextEntry
-                  />
-                </View>
-                <TouchableOpacity
-                  activeOpacity={0.5}
-                  onPress={() => this.props.navigation.navigate("Forget")}
-                >
-                  <View style={{ padding: 10 }}>
-                    <Text
-                      style={{
-                        color: "#007AFF",
-                        fontSize: 12,
-                        fontWeight: "bold",
-                        textAlign: "right"
-                      }}
-                    >
-                      Forgot Password?
-                    </Text>
-                  </View>
-                </TouchableOpacity>
-                {this.state.biometryType.length > 0 && (
-                  <View
+          </View>
+          <View>
+            <KeyboardAvoidingView behavior="padding" style={styles.wrapper}>
+              <View style={styles.inputWrap}>
+                <TextInput
+                  placeholder="Email"
+                  placeholderTextColor="#000"
+                  style={[Styles.input, styles.blackFont]}
+                  //onChangeText={Email => this.setState({ Email })}
+                  onChangeText={this.onEmailChange.bind(this)}
+                  value={this.props.email}
+                  onSubmitEditing={() => this.passwordInput.focus()}
+                  returnKeyType="next"
+                  keyboardType="email-address"
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                />
+              </View>
+              <View style={styles.inputWrap}>
+                <TextInput
+                  placeholderTextColor="#000"
+                  placeholder="Password"
+                  style={[Styles.input, styles.blackFont]}
+                  //onChangeText={Password => this.setState({ Password })}
+                  onChangeText={this.onPasswordChange.bind(this)}
+                  //value={this.state.Password}
+                  ref={input => (this.passwordInput = input)}
+                  value={this.props.password}
+                  returnKeyType="go"
+                  onSubmitEditing={this.onButtonPress.bind(this)}
+                  secureTextEntry
+                />
+              </View>
+              <TouchableOpacity
+                activeOpacity={0.5}
+                onPress={() => this.props.navigation.navigate("Forget")}
+              >
+                <View style={{ padding: 10 }}>
+                  <Text
                     style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "center"
+                      color: "#007AFF",
+                      fontSize: 12,
+                      fontWeight: "bold",
+                      textAlign: "right"
                     }}
                   >
-                    <Text style={styles.fingerPrint}>
-                      {this.state.biometryType}
-                    </Text>
-                    <Switch
-                      value={this.state.fingerSwitch}
-                      onValueChange={() => this.switchChange()}
-                    />
-                  </View>
-                )}
-
-                <TouchableOpacity
-                  activeOpacity={0.5}
-                  onPress={
-                    //this.props.navigation.navigate("Navigation");
-                    //this.authentication.bind(this)
-                    this.onButtonPress.bind(this)
-                  }
+                    Forgot Password?
+                  </Text>
+                </View>
+              </TouchableOpacity>
+              {this.state.biometryType.length > 0 && (
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "center"
+                  }}
                 >
-                <Button label='Sign In' onClick={() =>this.onSignIn()}/>
-                  {/* <View style={styles.button}>
+                  <Text style={styles.fingerPrint}>
+                    {this.state.biometryType}
+                  </Text>
+                  <Switch
+                    value={this.state.fingerSwitch}
+                    onValueChange={() => this.switchChange()}
+                  />
+                </View>
+              )}
+
+              <Button label="Sign In" onClick={() => this.onSignIn()} />
+              {/* <View style={styles.button}>
                     {this.props.loading ? (
                       <Spinner />
                     ) : (
                       <Text style={styles.buttonText}>Sign In</Text>
                     )}
                   </View> */}
-                </TouchableOpacity>
 
-                <Text style={styles.errorTextStyle}></Text>
-              </KeyboardAvoidingView>
-              <View>
-                <View
-                  style={{
-                    marginTop: 20,
-                    flexDirection: "row",
-                    justifyContent: "space-around"
-                  }}
-                >
-                  {/* <SocialIcon
+              <Text style={styles.errorTextStyle}></Text>
+            </KeyboardAvoidingView>
+            <View>
+              <View
+                style={{
+                  marginTop: 20,
+                  flexDirection: "row",
+                  justifyContent: "space-around"
+                }}
+              >
+                {/* <SocialIcon
                     button
                     type="facebook"
                     title="Facebook"
@@ -341,35 +335,35 @@ class Login extends Component {
                       // )
                     }
                   />  */}
-                </View>
-                <View style={styles.signupWrap}>
-                  <Text style={[Styles.black ,styles.accountText]}>No Account Yet?</Text>
-                  <TouchableOpacity
-                    activeOpacity={0.5}
-                    onPress={() => this.props.navigation.navigate("SignUp")}
-                  >
-                    <View>
-                      <Text style={Styles.subText2}> Request an Account</Text>
-                    </View>
-                  </TouchableOpacity>
-                </View>
-                <View
-                  style={{
-                    alignContent: "center",
-                    alignItems: "center",
-                    marginTop: 40
-                  }}
+              </View>
+              <View style={styles.signupWrap}>
+                <Text style={[Styles.black, styles.accountText]}>
+                  No Account Yet?
+                </Text>
+                <TouchableOpacity
+                  activeOpacity={0.5}
+                  onPress={() => this.props.navigation.navigate("SignUp")}
                 >
-                  <Image
-                    source={require("./Img/kyra_logo.png")}
-                    style={{ height: 59, width: 119 }}
-                  />
-                </View>
+                  <View>
+                    <Text style={Styles.subText2}> Request an Account</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+              <View
+                style={{
+                  alignContent: "center",
+                  alignItems: "center",
+                  marginTop: 40
+                }}
+              >
+                <Image
+                  source={require("./Img/kyra_logo.png")}
+                  style={{ height: 59, width: 119 }}
+                />
               </View>
             </View>
-
-
           </View>
+        </View>
       </ImageBackground>
     );
   }
@@ -461,7 +455,7 @@ const styles = StyleSheet.create({
   },
   input: {
     paddingHorizontal: 10,
-    fontSize:17
+    fontSize: 17
   },
   button: {
     alignItems: "center",
@@ -477,7 +471,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "#FFF",
-    fontSize: 18,
+    fontSize: 18
     // ...Platform.select({
     //   ios: {
     //     fontFamily: "SFProDisplay-Bold"
@@ -496,7 +490,7 @@ const styles = StyleSheet.create({
   signinwith: {
     marginTop: 20,
     textAlign: "center",
-    fontSize: 12,
+    fontSize: 12
     // ...Platform.select({
     //   ios: {
     //     fontFamily: "SFProDisplay-Bold"
@@ -526,7 +520,7 @@ const styles = StyleSheet.create({
   },
   signupLinkText: {
     fontSize: 14,
-    marginLeft: 5,
+    marginLeft: 5
     // ...Platform.select({
     //   ios: {
     //     fontFamily: "SFProDisplay-Bold"
@@ -539,7 +533,7 @@ const styles = StyleSheet.create({
   whiteFont: {
     color: "#FFF"
   },
-  blackFont:{
+  blackFont: {
     color: "#000"
   },
   errorTextStyle: {
@@ -550,18 +544,20 @@ const styles = StyleSheet.create({
     padding: 10
   }
 });
-
-// const mapStateToPros = state => {
-//   const { email } = state.auth;
-//   return {
-//     email,
-//   };
-// };
-
-export default Login;
-// connect(
-//   mapStateToPros,
-//   {
-//     emailChanged
-//   }
-// )(Login);
+const mapStateToProps = state => {
+  const { email, password, error } = state.auth;
+  return {
+    email,
+    password,
+    error
+  };
+};
+const mapDispatchToProps = {
+  emailChange,
+  passwordChange,
+  loginUser
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);

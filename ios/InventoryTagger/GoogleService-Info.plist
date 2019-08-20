@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>842732630309-mqrrj5od0nm36mfn60dt06t26hr3il5d.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.842732630309-mqrrj5od0nm36mfn60dt06t26hr3il5d</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>842732630309-fbqo5imvcuuij93des1shur16p3lno07.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB6tdkfobbyNE-WlTTtLiqbzvHmVoJUnCM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>842732630309</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kyrasolutions.exploreflorida</string>
+	<key>PROJECT_ID</key>
+	<string>exploreflorida-216721</string>
+	<key>STORAGE_BUCKET</key>
+	<string>exploreflorida-216721.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:842732630309:ios:5cf8d8fdc85b4040</string>
+	<key>DATABASE_URL</key>
+	<string>https://exploreflorida-216721.firebaseio.com</string>
+</dict>
+</plist>

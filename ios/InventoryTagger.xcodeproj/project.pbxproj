@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* EmergencyManagementInventoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* EmergencyManagementInventoryTests.m */; };
+		00E356F31AD99517003FC87E /* InventoryTaggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* InventoryTaggerTests.m */; };
 		016865F7EF06456084A78E1D /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C356CB48F2A4FE7A865247B /* AntDesign.ttf */; };
 		037FEE4219C342908D1147FA /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A354B1650444839A24620E4 /* FontAwesome5_Solid.ttf */; };
 		03C87A53A66D4F6FABC5FBF6 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9A89F91956A4710890E894F /* Octicons.ttf */; };
@@ -19,22 +19,23 @@
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* EmergencyManagementInventoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* EmergencyManagementInventoryTests.m */; };
+		2DCD954D1E0B4F2C00145EB5 /* InventoryTaggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* InventoryTaggerTests.m */; };
 		3020393E628E4F5CA31E2710 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E7C9EB21CE342BFB40C88E5 /* Ionicons.ttf */; };
 		314D90FD57B34C10A3C5C1F7 /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0F421DCD8144AC9AE9E8DB6 /* Roboto_medium.ttf */; };
 		391E55008E0C41D3B0D47FEB /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A726F54BCC7F401791668644 /* Roboto.ttf */; };
-		42C4148F58FBB94D01023D67 /* libPods-EmergencyManagementInventory-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 782BECA7909D4C4AE9CC8F40 /* libPods-EmergencyManagementInventory-tvOS.a */; };
+		42C4148F58FBB94D01023D67 /* libPods-InventoryTagger-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 782BECA7909D4C4AE9CC8F40 /* libPods-InventoryTagger-tvOS.a */; };
 		43DC882C00B848AAADDEDF5F /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B704A075A834F60A0C28A31 /* MaterialIcons.ttf */; };
 		4F0A631C7DCD4EEA9B8974ED /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C1A0F8126964C4A8F0E1687 /* EvilIcons.ttf */; };
 		7F64460C75564542AF9A8F7D /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22FC9CFF076443EBB30C9724 /* Zocial.ttf */; };
 		937C585B2F9849E5BB7302E9 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A0A50861425470385769C69 /* FontAwesome5_Brands.ttf */; };
-		98B60473FA0BCAD326134936 /* libPods-EmergencyManagementInventoryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C089B4BA8EC89CADD6B8A96 /* libPods-EmergencyManagementInventoryTests.a */; };
+		98B60473FA0BCAD326134936 /* libPods-InventoryTaggerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C089B4BA8EC89CADD6B8A96 /* libPods-InventoryTaggerTests.a */; };
+		9F02A60E230C34940058CBFD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F02A60D230C34940058CBFD /* GoogleService-Info.plist */; };
 		A04FF89C628F4A41907E4563 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56EB31EADF3F47C5A0257292 /* Feather.ttf */; };
-		A2198064B9ADF7EB787791BB /* libPods-EmergencyManagementInventory-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB8451525B3000A63FF7F5 /* libPods-EmergencyManagementInventory-tvOSTests.a */; };
+		A2198064B9ADF7EB787791BB /* libPods-InventoryTagger-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB8451525B3000A63FF7F5 /* libPods-InventoryTagger-tvOSTests.a */; };
 		C8F9CC19F99245B1A5EDC1C5 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1FD75F05C6B4C8B8F5E429C /* FontAwesome5_Regular.ttf */; };
 		CA01977B42F8435E866BA79C /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9D78B54D1CB4C9682644F78 /* rubicon-icon-font.ttf */; };
 		D05C25CF01A64F8E818AB834 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EF4E182795641EBBFFBCB17 /* Foundation.ttf */; };
-		D7AFF66BF6237545C44EA898 /* libPods-EmergencyManagementInventory.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E744E280CFED7CDC7693A1B /* libPods-EmergencyManagementInventory.a */; };
+		D7AFF66BF6237545C44EA898 /* libPods-InventoryTagger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E744E280CFED7CDC7693A1B /* libPods-InventoryTagger.a */; };
 		E02560650B3D49A5B8217140 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33E50B07ADC44C0FA4EBE6B9 /* MaterialCommunityIcons.ttf */; };
 		E8D65CF30F7A4C9487169725 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3AF75E29F5447F8812DD52A /* FontAwesome.ttf */; };
 		F754857D36204230A8AF6E11 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 759A4B9E1B994C86B6C069F5 /* SimpleLineIcons.ttf */; };
@@ -46,63 +47,64 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = EmergencyManagementInventory;
+			remoteInfo = InventoryTagger;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "EmergencyManagementInventory-tvOS";
+			remoteInfo = "InventoryTagger-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* EmergencyManagementInventoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmergencyManagementInventoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* InventoryTaggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InventoryTaggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* EmergencyManagementInventoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmergencyManagementInventoryTests.m; sourceTree = "<group>"; };
-		0C089B4BA8EC89CADD6B8A96 /* libPods-EmergencyManagementInventoryTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EmergencyManagementInventoryTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F21AD99517003FC87E /* InventoryTaggerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InventoryTaggerTests.m; sourceTree = "<group>"; };
+		0C089B4BA8EC89CADD6B8A96 /* libPods-InventoryTaggerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InventoryTaggerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C1A0F8126964C4A8F0E1687 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* EmergencyManagementInventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmergencyManagementInventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = EmergencyManagementInventory/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = EmergencyManagementInventory/AppDelegate.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* InventoryTagger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InventoryTagger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = InventoryTagger/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = InventoryTagger/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = EmergencyManagementInventory/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = EmergencyManagementInventory/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = EmergencyManagementInventory/main.m; sourceTree = "<group>"; };
-		1ED90A89161119D927A78458 /* Pods-EmergencyManagementInventoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmergencyManagementInventoryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EmergencyManagementInventoryTests/Pods-EmergencyManagementInventoryTests.release.xcconfig"; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = InventoryTagger/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = InventoryTagger/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = InventoryTagger/main.m; sourceTree = "<group>"; };
+		1ED90A89161119D927A78458 /* Pods-InventoryTaggerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventoryTaggerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InventoryTaggerTests/Pods-InventoryTaggerTests.release.xcconfig"; sourceTree = "<group>"; };
 		22FC9CFF076443EBB30C9724 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		2B704A075A834F60A0C28A31 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* EmergencyManagementInventory-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EmergencyManagementInventory-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* EmergencyManagementInventory-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EmergencyManagementInventory-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E47B1E0B4A5D006451C7 /* InventoryTagger-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "InventoryTagger-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* InventoryTagger-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "InventoryTagger-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E7C9EB21CE342BFB40C88E5 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		2EA6CADF78D9B1E49162CF79 /* Pods-EmergencyManagementInventory-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmergencyManagementInventory-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EmergencyManagementInventory-tvOSTests/Pods-EmergencyManagementInventory-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		2EA6CADF78D9B1E49162CF79 /* Pods-InventoryTagger-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventoryTagger-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InventoryTagger-tvOSTests/Pods-InventoryTagger-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		33E50B07ADC44C0FA4EBE6B9 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		56EB31EADF3F47C5A0257292 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
-		600894A9DE08669236127B8F /* Pods-EmergencyManagementInventoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmergencyManagementInventoryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmergencyManagementInventoryTests/Pods-EmergencyManagementInventoryTests.debug.xcconfig"; sourceTree = "<group>"; };
-		66E138AD85D01840F13411A7 /* Pods-EmergencyManagementInventory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmergencyManagementInventory.release.xcconfig"; path = "Pods/Target Support Files/Pods-EmergencyManagementInventory/Pods-EmergencyManagementInventory.release.xcconfig"; sourceTree = "<group>"; };
-		6E744E280CFED7CDC7693A1B /* libPods-EmergencyManagementInventory.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EmergencyManagementInventory.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		600894A9DE08669236127B8F /* Pods-InventoryTaggerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventoryTaggerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InventoryTaggerTests/Pods-InventoryTaggerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		66E138AD85D01840F13411A7 /* Pods-InventoryTagger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventoryTagger.release.xcconfig"; path = "Pods/Target Support Files/Pods-InventoryTagger/Pods-InventoryTagger.release.xcconfig"; sourceTree = "<group>"; };
+		6E744E280CFED7CDC7693A1B /* libPods-InventoryTagger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InventoryTagger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF4E182795641EBBFFBCB17 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		759A4B9E1B994C86B6C069F5 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
-		782BECA7909D4C4AE9CC8F40 /* libPods-EmergencyManagementInventory-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EmergencyManagementInventory-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		782BECA7909D4C4AE9CC8F40 /* libPods-InventoryTagger-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InventoryTagger-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0A50861425470385769C69 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		82EB4E7633C84066B1387DF5 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
-		87F1D93A286BF33406F35695 /* Pods-EmergencyManagementInventory-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmergencyManagementInventory-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmergencyManagementInventory-tvOSTests/Pods-EmergencyManagementInventory-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		87F1D93A286BF33406F35695 /* Pods-InventoryTagger-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventoryTagger-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InventoryTagger-tvOSTests/Pods-InventoryTagger-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8C356CB48F2A4FE7A865247B /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/native-base/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
-		8DBB8451525B3000A63FF7F5 /* libPods-EmergencyManagementInventory-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EmergencyManagementInventory-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DBB8451525B3000A63FF7F5 /* libPods-InventoryTagger-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InventoryTagger-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A354B1650444839A24620E4 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		9F02A60D230C34940058CBFD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "InventoryTagger/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A726F54BCC7F401791668644 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
 		A9D78B54D1CB4C9682644F78 /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
-		AF14C214F6E10EFE25D67DA0 /* Pods-EmergencyManagementInventory-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmergencyManagementInventory-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-EmergencyManagementInventory-tvOS/Pods-EmergencyManagementInventory-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		AF14C214F6E10EFE25D67DA0 /* Pods-InventoryTagger-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventoryTagger-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-InventoryTagger-tvOS/Pods-InventoryTagger-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		B0F421DCD8144AC9AE9E8DB6 /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
 		B3AF75E29F5447F8812DD52A /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		D9A89F91956A4710890E894F /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		E1FD75F05C6B4C8B8F5E429C /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
-		E92C77D962F4F388EB36B05A /* Pods-EmergencyManagementInventory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmergencyManagementInventory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmergencyManagementInventory/Pods-EmergencyManagementInventory.debug.xcconfig"; sourceTree = "<group>"; };
+		E92C77D962F4F388EB36B05A /* Pods-InventoryTagger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventoryTagger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InventoryTagger/Pods-InventoryTagger.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F476C65CD8E32C2FE1ABF14C /* Pods-EmergencyManagementInventory-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmergencyManagementInventory-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmergencyManagementInventory-tvOS/Pods-EmergencyManagementInventory-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		F476C65CD8E32C2FE1ABF14C /* Pods-InventoryTagger-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventoryTagger-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InventoryTagger-tvOS/Pods-InventoryTagger-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98B60473FA0BCAD326134936 /* libPods-EmergencyManagementInventoryTests.a in Frameworks */,
+				98B60473FA0BCAD326134936 /* libPods-InventoryTaggerTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7AFF66BF6237545C44EA898 /* libPods-EmergencyManagementInventory.a in Frameworks */,
+				D7AFF66BF6237545C44EA898 /* libPods-InventoryTagger.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42C4148F58FBB94D01023D67 /* libPods-EmergencyManagementInventory-tvOS.a in Frameworks */,
+				42C4148F58FBB94D01023D67 /* libPods-InventoryTagger-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,20 +136,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2198064B9ADF7EB787791BB /* libPods-EmergencyManagementInventory-tvOSTests.a in Frameworks */,
+				A2198064B9ADF7EB787791BB /* libPods-InventoryTagger-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* EmergencyManagementInventoryTests */ = {
+		00E356EF1AD99517003FC87E /* InventoryTaggerTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* EmergencyManagementInventoryTests.m */,
+				00E356F21AD99517003FC87E /* InventoryTaggerTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = EmergencyManagementInventoryTests;
+			path = InventoryTaggerTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -158,9 +160,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* EmergencyManagementInventory */ = {
+		13B07FAE1A68108700A75B9A /* InventoryTagger */ = {
 			isa = PBXGroup;
 			children = (
+				9F02A60D230C34940058CBFD /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -169,7 +172,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = EmergencyManagementInventory;
+			name = InventoryTagger;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -177,10 +180,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				6E744E280CFED7CDC7693A1B /* libPods-EmergencyManagementInventory.a */,
-				782BECA7909D4C4AE9CC8F40 /* libPods-EmergencyManagementInventory-tvOS.a */,
-				8DBB8451525B3000A63FF7F5 /* libPods-EmergencyManagementInventory-tvOSTests.a */,
-				0C089B4BA8EC89CADD6B8A96 /* libPods-EmergencyManagementInventoryTests.a */,
+				6E744E280CFED7CDC7693A1B /* libPods-InventoryTagger.a */,
+				782BECA7909D4C4AE9CC8F40 /* libPods-InventoryTagger-tvOS.a */,
+				8DBB8451525B3000A63FF7F5 /* libPods-InventoryTagger-tvOSTests.a */,
+				0C089B4BA8EC89CADD6B8A96 /* libPods-InventoryTaggerTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -188,14 +191,14 @@
 		5C808F2BAFD06A24E7AA6230 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E92C77D962F4F388EB36B05A /* Pods-EmergencyManagementInventory.debug.xcconfig */,
-				66E138AD85D01840F13411A7 /* Pods-EmergencyManagementInventory.release.xcconfig */,
-				F476C65CD8E32C2FE1ABF14C /* Pods-EmergencyManagementInventory-tvOS.debug.xcconfig */,
-				AF14C214F6E10EFE25D67DA0 /* Pods-EmergencyManagementInventory-tvOS.release.xcconfig */,
-				87F1D93A286BF33406F35695 /* Pods-EmergencyManagementInventory-tvOSTests.debug.xcconfig */,
-				2EA6CADF78D9B1E49162CF79 /* Pods-EmergencyManagementInventory-tvOSTests.release.xcconfig */,
-				600894A9DE08669236127B8F /* Pods-EmergencyManagementInventoryTests.debug.xcconfig */,
-				1ED90A89161119D927A78458 /* Pods-EmergencyManagementInventoryTests.release.xcconfig */,
+				E92C77D962F4F388EB36B05A /* Pods-InventoryTagger.debug.xcconfig */,
+				66E138AD85D01840F13411A7 /* Pods-InventoryTagger.release.xcconfig */,
+				F476C65CD8E32C2FE1ABF14C /* Pods-InventoryTagger-tvOS.debug.xcconfig */,
+				AF14C214F6E10EFE25D67DA0 /* Pods-InventoryTagger-tvOS.release.xcconfig */,
+				87F1D93A286BF33406F35695 /* Pods-InventoryTagger-tvOSTests.debug.xcconfig */,
+				2EA6CADF78D9B1E49162CF79 /* Pods-InventoryTagger-tvOSTests.release.xcconfig */,
+				600894A9DE08669236127B8F /* Pods-InventoryTaggerTests.debug.xcconfig */,
+				1ED90A89161119D927A78458 /* Pods-InventoryTaggerTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -235,9 +238,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* EmergencyManagementInventory */,
+				13B07FAE1A68108700A75B9A /* InventoryTagger */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* EmergencyManagementInventoryTests */,
+				00E356EF1AD99517003FC87E /* InventoryTaggerTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				5C808F2BAFD06A24E7AA6230 /* Pods */,
@@ -251,10 +254,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* EmergencyManagementInventory.app */,
-				00E356EE1AD99517003FC87E /* EmergencyManagementInventoryTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* EmergencyManagementInventory-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* EmergencyManagementInventory-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* InventoryTagger.app */,
+				00E356EE1AD99517003FC87E /* InventoryTaggerTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* InventoryTagger-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* InventoryTagger-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -262,9 +265,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* EmergencyManagementInventoryTests */ = {
+		00E356ED1AD99517003FC87E /* InventoryTaggerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "EmergencyManagementInventoryTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "InventoryTaggerTests" */;
 			buildPhases = (
 				70482537680D32E8A9960EE8 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -276,14 +279,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = EmergencyManagementInventoryTests;
-			productName = EmergencyManagementInventoryTests;
-			productReference = 00E356EE1AD99517003FC87E /* EmergencyManagementInventoryTests.xctest */;
+			name = InventoryTaggerTests;
+			productName = InventoryTaggerTests;
+			productReference = 00E356EE1AD99517003FC87E /* InventoryTaggerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* EmergencyManagementInventory */ = {
+		13B07F861A680F5B00A75B9A /* InventoryTagger */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "EmergencyManagementInventory" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "InventoryTagger" */;
 			buildPhases = (
 				3E0F043832E0BDA617B810AD /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -297,14 +300,14 @@
 			);
 			dependencies = (
 			);
-			name = EmergencyManagementInventory;
-			productName = EmergencyManagementInventory;
-			productReference = 13B07F961A680F5B00A75B9A /* EmergencyManagementInventory.app */;
+			name = InventoryTagger;
+			productName = InventoryTagger;
+			productReference = 13B07F961A680F5B00A75B9A /* InventoryTagger.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* EmergencyManagementInventory-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* InventoryTagger-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "EmergencyManagementInventory-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "InventoryTagger-tvOS" */;
 			buildPhases = (
 				9FE524B64B2653663FC4C24A /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -317,14 +320,14 @@
 			);
 			dependencies = (
 			);
-			name = "EmergencyManagementInventory-tvOS";
-			productName = "EmergencyManagementInventory-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* EmergencyManagementInventory-tvOS.app */;
+			name = "InventoryTagger-tvOS";
+			productName = "InventoryTagger-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* InventoryTagger-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* EmergencyManagementInventory-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* InventoryTagger-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "EmergencyManagementInventory-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "InventoryTagger-tvOSTests" */;
 			buildPhases = (
 				C2731B6B93CDC74A5074D31F /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -336,9 +339,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "EmergencyManagementInventory-tvOSTests";
-			productName = "EmergencyManagementInventory-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* EmergencyManagementInventory-tvOSTests.xctest */;
+			name = "InventoryTagger-tvOSTests";
+			productName = "InventoryTagger-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* InventoryTagger-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -368,12 +371,11 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "EmergencyManagementInventory" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "InventoryTagger" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -382,10 +384,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* EmergencyManagementInventory */,
-				00E356ED1AD99517003FC87E /* EmergencyManagementInventoryTests */,
-				2D02E47A1E0B4A5D006451C7 /* EmergencyManagementInventory-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* EmergencyManagementInventory-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* InventoryTagger */,
+				00E356ED1AD99517003FC87E /* InventoryTaggerTests */,
+				2D02E47A1E0B4A5D006451C7 /* InventoryTagger-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* InventoryTagger-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -422,6 +424,7 @@
 				CA01977B42F8435E866BA79C /* rubicon-icon-font.ttf in Resources */,
 				F754857D36204230A8AF6E11 /* SimpleLineIcons.ttf in Resources */,
 				7F64460C75564542AF9A8F7D /* Zocial.ttf in Resources */,
+				9F02A60E230C34940058CBFD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,7 +485,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-EmergencyManagementInventory-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-InventoryTagger-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -500,7 +503,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-EmergencyManagementInventoryTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-InventoryTaggerTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -518,7 +521,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-EmergencyManagementInventory-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-InventoryTagger-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -536,7 +539,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-EmergencyManagementInventory-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-InventoryTagger-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -549,7 +552,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-EmergencyManagementInventory/Pods-EmergencyManagementInventory-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-InventoryTagger/Pods-InventoryTagger-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -588,7 +591,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EmergencyManagementInventory/Pods-EmergencyManagementInventory-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InventoryTagger/Pods-InventoryTagger-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -628,7 +631,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* EmergencyManagementInventoryTests.m in Sources */,
+				00E356F31AD99517003FC87E /* InventoryTaggerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,7 +657,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* EmergencyManagementInventoryTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* InventoryTaggerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,12 +666,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* EmergencyManagementInventory */;
+			target = 13B07F861A680F5B00A75B9A /* InventoryTagger */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* EmergencyManagementInventory-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* InventoryTagger-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -680,7 +683,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = EmergencyManagementInventory;
+			path = InventoryTagger;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -688,14 +691,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 600894A9DE08669236127B8F /* Pods-EmergencyManagementInventoryTests.debug.xcconfig */;
+			baseConfigurationReference = 600894A9DE08669236127B8F /* Pods-InventoryTaggerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = EmergencyManagementInventoryTests/Info.plist;
+				INFOPLIST_FILE = InventoryTaggerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -705,17 +708,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EmergencyManagementInventory.app/EmergencyManagementInventory";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InventoryTagger.app/InventoryTagger";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1ED90A89161119D927A78458 /* Pods-EmergencyManagementInventoryTests.release.xcconfig */;
+			baseConfigurationReference = 1ED90A89161119D927A78458 /* Pods-InventoryTaggerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = EmergencyManagementInventoryTests/Info.plist;
+				INFOPLIST_FILE = InventoryTaggerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -725,54 +728,56 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EmergencyManagementInventory.app/EmergencyManagementInventory";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InventoryTagger.app/InventoryTagger";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E92C77D962F4F388EB36B05A /* Pods-EmergencyManagementInventory.debug.xcconfig */;
+			baseConfigurationReference = E92C77D962F4F388EB36B05A /* Pods-InventoryTagger.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 327ULQH868;
-				INFOPLIST_FILE = EmergencyManagementInventory/Info.plist;
+				INFOPLIST_FILE = InventoryTagger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = EmergencyManagementInventory;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyrasolutions.exploreflorida;
+				PRODUCT_NAME = InventoryTagger;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 66E138AD85D01840F13411A7 /* Pods-EmergencyManagementInventory.release.xcconfig */;
+			baseConfigurationReference = 66E138AD85D01840F13411A7 /* Pods-InventoryTagger.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 327ULQH868;
-				INFOPLIST_FILE = EmergencyManagementInventory/Info.plist;
+				INFOPLIST_FILE = InventoryTagger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = EmergencyManagementInventory;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyrasolutions.exploreflorida;
+				PRODUCT_NAME = InventoryTagger;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F476C65CD8E32C2FE1ABF14C /* Pods-EmergencyManagementInventory-tvOS.debug.xcconfig */;
+			baseConfigurationReference = F476C65CD8E32C2FE1ABF14C /* Pods-InventoryTagger-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -783,14 +788,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "EmergencyManagementInventory-tvOS/Info.plist";
+				INFOPLIST_FILE = "InventoryTagger-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.EmergencyManagementInventory-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.InventoryTagger-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -800,7 +805,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF14C214F6E10EFE25D67DA0 /* Pods-EmergencyManagementInventory-tvOS.release.xcconfig */;
+			baseConfigurationReference = AF14C214F6E10EFE25D67DA0 /* Pods-InventoryTagger-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -811,14 +816,14 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "EmergencyManagementInventory-tvOS/Info.plist";
+				INFOPLIST_FILE = "InventoryTagger-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.EmergencyManagementInventory-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.InventoryTagger-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -828,7 +833,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87F1D93A286BF33406F35695 /* Pods-EmergencyManagementInventory-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 87F1D93A286BF33406F35695 /* Pods-InventoryTagger-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -838,24 +843,24 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "EmergencyManagementInventory-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "InventoryTagger-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.EmergencyManagementInventory-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.InventoryTagger-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EmergencyManagementInventory-tvOS.app/EmergencyManagementInventory-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InventoryTagger-tvOS.app/InventoryTagger-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2EA6CADF78D9B1E49162CF79 /* Pods-EmergencyManagementInventory-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 2EA6CADF78D9B1E49162CF79 /* Pods-InventoryTagger-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -865,17 +870,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "EmergencyManagementInventory-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "InventoryTagger-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.EmergencyManagementInventory-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.InventoryTagger-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EmergencyManagementInventory-tvOS.app/EmergencyManagementInventory-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InventoryTagger-tvOS.app/InventoryTagger-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -984,7 +989,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "EmergencyManagementInventoryTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "InventoryTaggerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -993,7 +998,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "EmergencyManagementInventory" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "InventoryTagger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1002,7 +1007,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "EmergencyManagementInventory-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "InventoryTagger-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1011,7 +1016,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "EmergencyManagementInventory-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "InventoryTagger-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1020,7 +1025,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "EmergencyManagementInventory" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "InventoryTagger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
