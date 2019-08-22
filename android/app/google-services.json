@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "842732630309",
+    "firebase_url": "https://exploreflorida-216721.firebaseio.com",
+    "project_id": "exploreflorida-216721",
+    "storage_bucket": "exploreflorida-216721.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842732630309:android:5cf8d8fdc85b4040",
+        "android_client_info": {
+          "package_name": "com.kyrasolutions.exploreflorida"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842732630309-fbqo5imvcuuij93des1shur16p3lno07.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kyrasolutions.exploreflorida",
+            "certificate_hash": "923de59b7e254e78ab65e8a17b6d6ac78e283e20"
+          }
+        },
+        {
+          "client_id": "842732630309-8e3v7iactiundbq0q207s57mlnmilqbg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqH7bn9ilA-mq8IaJhEaDbCC6xihYvgq4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842732630309-8e3v7iactiundbq0q207s57mlnmilqbg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "842732630309-mqrrj5od0nm36mfn60dt06t26hr3il5d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kyrasolutions.exploreflorida"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
