@@ -33,9 +33,13 @@ class Camera extends PureComponent {
     return (
       <View style={styles.container}>
         <View style={styles.headerContainer}>
-          <View>
-            <Text style={styles.left}>Cancel</Text>
-          </View>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("Inventory")}
+          >
+            <View>
+              <Text style={styles.left}>Cancel</Text>
+            </View>
+          </TouchableOpacity>
           <View>
             <Text style={styles.title}>Take Photo</Text>
           </View>

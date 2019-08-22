@@ -1,10 +1,11 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from "react-native";
 
+let { width, height } = Dimensions.get("window");
 const Styles = StyleSheet.create({
   container: {
     marginTop: 150,
-    backgroundColor: '#ededed',
-    flexWrap: 'wrap'
+    backgroundColor: "#ededed",
+    flexWrap: "wrap"
   },
   input: {
     paddingHorizontal: 10,
@@ -22,15 +23,17 @@ const Styles = StyleSheet.create({
   subText1: {
     color: "#007AFF",
     fontSize: 12,
-    fontWeight: 'bold',
+    fontWeight: "bold"
   },
   subText2: {
     color: "#007AFF",
     fontSize: 14,
-    fontWeight: 'bold',
+    fontWeight: "bold"
   },
   center: {
-    alignContent: "center", alignItems: "center", justifyContent: "center"
+    alignContent: "center",
+    alignItems: "center",
+    justifyContent: "center"
   },
   button: {
     alignItems: "center",
@@ -57,23 +60,31 @@ const Styles = StyleSheet.create({
     //   }
     // })
   },
-  headerContainer: {
-
-  }
+  syncButton: {
+    height: 60,
+    width: 60,
+    borderRadius: 30,
+    position: "absolute",
+    justifyContent: "center",
+    alignContent: "center",
+    alignItems: "center",
+    bottom: 20,
+    left: width * 0.5 - 30,
+    backgroundColor: "#222222"
+  },
+  headerContainer: {}
 });
 
 const buttons = StyleSheet.create({
   primary: {
     flex: 1,
     height: 70,
-    backgroundColor: 'red',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "red",
+    justifyContent: "center",
+    alignItems: "center",
     marginLeft: 20,
     marginRight: 20
   }
 });
 
-
-
-export { Styles, buttons }
+export { Styles, buttons };

@@ -4,7 +4,8 @@ import {
   View,
   TouchableOpacity,
   StyleSheet,
-  Dimensions
+  Dimensions,
+  AsyncStorage
 } from "react-native";
 import { Container, Content, Footer, Icon } from "native-base";
 import Head from "./Head";
@@ -106,7 +107,6 @@ class EditPage extends Component {
     this.props.navigation.navigate("Inventory");
   }
   uploadImage(mime = "image/jpeg") {
-    this.setState({ loading: true });
     const { uri } = this.props.navigation.state.params;
     const newUri = uri.toString();
     const newUriIos = newUri.replace("file://", "");
@@ -149,17 +149,73 @@ class EditPage extends Component {
     });
   }
 
+  checkOffline() {
+    this.setState({ loading: true });
+    if (!this.props.offline) {
+      const {
+        type,
+        description,
+        location_name,
+        address,
+        city,
+        State,
+        zip,
+        latitude,
+        longitude,
+        phone,
+        image,
+        edit
+      } = this.props;
+      const itemList = {
+        type,
+        description,
+        location_name,
+        address,
+        city,
+        State,
+        zip,
+        latitude,
+        longitude,
+        phone,
+        image,
+        edit
+      };
+      console.log("itemList", itemList);
+      AsyncStorage.getItem("Items").then(item => {
+        if (item) {
+          console.log("items", item);
+          let ArrayItems = [];
+          ArrayItems = JSON.parse(item);
+          console.log("ArrayItems", ArrayItems);
+          ArrayItems.push(itemList);
+          AsyncStorage.setItem("Items", JSON.stringify(ArrayItems));
+          this.props.navigation.navigate("Inventory");
+        } else {
+          let ArrayItems = [];
+          ArrayItems.push(itemList);
+          console.log("No items", ArrayItems);
+          AsyncStorage.setItem("Items", JSON.stringify(ArrayItems));
+          AsyncStorage.getItem("Items").then(e => console.log(e));
+          this.props.navigation.navigate("Inventory");
+        }
+      });
+      this.setState({ loading: false });
+    } else {
+      this.uploadImage();
+    }
+  }
+
   render() {
     return (
       <Container>
-        <Head onSubmit={() => this.uploadImage()} />
+        <Head onSubmit={() => this.checkOffline()} />
         <Content>
           <Form
             ref={instance => {
               this.child = instance;
             }}
             navigation={this.props.navigation}
-            onSubmit={() => this.uploadImage()}
+            onSubmit={() => this.checkOffline()}
           />
 
           {this.state.loading && (
@@ -236,6 +292,7 @@ const mapStateToProps = state => {
     edit
   } = state.add;
   const { list } = state.inventorylist;
+  const { offline } = state.auth;
   return {
     type,
     description,
@@ -249,7 +306,8 @@ const mapStateToProps = state => {
     phone,
     image,
     list,
-    edit
+    edit,
+    offline
   };
 };
 const mapDispatchToProps = {

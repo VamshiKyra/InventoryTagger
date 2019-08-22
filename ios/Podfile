@@ -43,6 +43,8 @@ target 'InventoryTagger' do
 
   pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
 
+  pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
+
   target 'InventoryTaggerTests' do
     inherit! :search_paths
     # Pods for testing
