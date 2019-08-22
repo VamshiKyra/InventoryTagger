@@ -14,7 +14,8 @@ import {
   MODIFY_USER,
   MODIFY_TS,
   CITY,
-  STATE
+  STATE,
+  EDIT_MODE
 } from "./types";
 import firebase from "react-native-firebase";
 import { AsyncStorage } from "react-native";
@@ -25,6 +26,7 @@ export const addInventory = ({
   description,
   location_name,
   address,
+  city,
   State,
   zip,
   latitude,
@@ -57,6 +59,7 @@ export const addInventory = ({
         description,
         location_name,
         address,
+        city,
         State,
         zip,
         latitude,
@@ -75,6 +78,12 @@ export const addInventory = ({
   };
 };
 
+export const editMode = text => {
+  return {
+    type: EDIT_MODE,
+    payload: text
+  };
+};
 export const typeChange = text => {
   return {
     type: TYPE,

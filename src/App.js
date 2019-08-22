@@ -15,6 +15,7 @@ import { createStore, applyMiddleware } from "redux";
 import reducers from "./reducers";
 import ReduxThunk from "redux-thunk";
 import firebase from "react-native-firebase";
+import Geolocation from "@react-native-community/geolocation";
 const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 class App extends Component {
   constructor() {
@@ -23,6 +24,7 @@ class App extends Component {
       isAuthenticated: false
     };
   }
+
   //   async componentDidMount() {
   //     // SplashScreen.hide();
   //     // AsyncStorage.getItem("notification")
@@ -148,6 +150,13 @@ class App extends Component {
   //     //     // User has rejected permissions
   //     //   });
   //   }
+  requestLocation() {
+    const config = {
+      authorizationLevel: "always"
+    };
+    Geolocation.setRNConfiguration(config);
+    Geolocation.requestAuthorization();
+  }
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>

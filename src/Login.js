@@ -294,8 +294,11 @@ class Login extends Component {
                   />
                 </View>
               )}
-
-              <Button label="Sign In" onClick={() => this.onSignIn()} />
+              {this.props.loading ? (
+                <Spinner />
+              ) : (
+                <Button label="Sign In" onClick={() => this.onSignIn()} />
+              )}
               {/* <View style={styles.button}>
                     {this.props.loading ? (
                       <Spinner />
@@ -545,11 +548,12 @@ const styles = StyleSheet.create({
   }
 });
 const mapStateToProps = state => {
-  const { email, password, error } = state.auth;
+  const { email, password, error, loading } = state.auth;
   return {
     email,
     password,
-    error
+    error,
+    loading
   };
 };
 const mapDispatchToProps = {

@@ -14,7 +14,8 @@ import {
   MODIFY_USER,
   MODIFY_TS,
   STATE,
-  CITY
+  CITY,
+  EDIT_MODE
 } from "../actions/types";
 
 const INITIAL_STATE = {
@@ -33,7 +34,8 @@ const INITIAL_STATE = {
   create_user: "",
   create_ts: "",
   modify_user: "",
-  modify_ts: ""
+  modify_ts: "",
+  edit: false
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -68,6 +70,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, modify_user: action.payload };
     case MODIFY_TS:
       return { ...state, modify_ts: action.payload };
+    case EDIT_MODE:
+      return { ...state, edit: action.payload };
     default:
       return state;
   }

@@ -19,6 +19,7 @@ import { compose } from "recompose";
 import { connect } from "react-redux";
 import * as Yup from "yup";
 import { Icon, Item, Label, Textarea } from "native-base";
+import Geolocation from "@react-native-community/geolocation";
 import {
   typeChange,
   descriptionChange,
@@ -64,13 +65,46 @@ const Forms = withNextInputAutoFocusForm(View);
 class Form extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      image: "../../Img/background.png"
+    };
   }
-
+  componentDidMount() {
+    if (!this.props.edit) {
+      Geolocation.getCurrentPosition(
+        position => {
+          const { latitude, longitude } = position.coords;
+          this.props.latitudeChange(latitude);
+          this.props.longitudeChange(longitude);
+        },
+        error => Alert.alert("Unable to find location"),
+        { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+      );
+    }
+  }
   onSubmit = () => {
-    console.log("submit", this.props);
-    this.props.navigation.navigate("ViewPage");
+    this.props.onSubmit();
   };
+  componentWillMount() {
+    console.log("Form props", this.props);
+  }
+  renderImage() {
+    const picture = this.props.image;
+    return (
+      <View>
+        <Image
+          source={{
+            uri: picture
+          }}
+          style={{
+            width: width * 0.9,
+            height: width * 1.1,
+            margin: width * 0.05
+          }}
+        />
+      </View>
+    );
+  }
   render() {
     const placeholder = {
       label: "Select...",
@@ -86,14 +120,6 @@ class Form extends Component {
             render={() => {
               return (
                 <Forms>
-                  {/* <MyInput
-                                    label="Type"
-                                    name="Type"
-                                    type="name"
-                                    value={this.state.type}
-                                    onChangeText={this.onTypeChange.bind(this)}
-                                    autoCorrect={false}
-                                /> */}
                   <Item>
                     <View style={styles.item}>
                       <View>
@@ -116,22 +142,6 @@ class Form extends Component {
                         />
                       </View>
                     </View>
-                    {/* <Picker
-                                    mode="dropdown"
-                                    iosIcon={<Icon name="arrow-down" />}
-                                    style={{ width: "70%" }}
-                                    placeholder="Select your SIM"
-                                    placeholderStyle={{ color: "#bfc6ea" }}
-                                    placeholderIconColor="#007aff"
-                                    selectedValue={this.state.type}
-                                    onValueChange={this.onTypeChange.bind(this)}
-                                >
-                                    <Picker.Item label="Wallet" value="key0" />
-                                    <Picker.Item label="ATM Card" value="key1" />
-                                    <Picker.Item label="Debit Card" value="key2" />
-                                    <Picker.Item label="Credit Card" value="key3" />
-                                    <Picker.Item label="Net Banking" value="key4" />
-                                </Picker> */}
                   </Item>
                   <Item>
                     <View style={[styles.item, { paddingBottom: 10 }]}>
@@ -154,20 +164,6 @@ class Form extends Component {
                       </View>
                     </View>
                   </Item>
-                  {/* <Item>
-                                    <View style={[styles.item, { paddingBottom: 10 }]}>
-                                        <View >
-                                            <Text style={styles.labelText}>Address</Text>
-                                        </View>
-                                        <View >
-                                            <TextInput
-                                                style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-                                                onChangeText={(text) => this.setState({ text })}
-                                                value={this.state.text}
-                                            />
-                                        </View>
-                                    </View>
-                                </Item> */}
                   <View style={{ paddingBottom: 15 }} />
                   <MyInput
                     label="Location Name"
@@ -183,7 +179,7 @@ class Form extends Component {
                     label="Address"
                     name="address"
                     type="address"
-                    value={this.props.Address}
+                    value={this.props.address}
                     onChangeText={Address => this.props.addressChange(Address)}
                     autoCorrect={false}
                   />
@@ -251,10 +247,7 @@ class Form extends Component {
               );
             }}
           />
-          <Image
-            source={require("../../Img/photogenerator.png")}
-            style={{ width: width * 0.9, margin: width * 0.05 }}
-          />
+          {this.renderImage()}
           {/* <Formik
                     initialValues={{ email: '' }}
                     onSubmit={values => console.log(values)}
@@ -324,7 +317,8 @@ const mapStateToProps = state => {
     latitude,
     longitude,
     phone,
-    image
+    image,
+    edit
   } = state.add;
   return {
     type,
@@ -337,7 +331,8 @@ const mapStateToProps = state => {
     latitude,
     longitude,
     phone,
-    image
+    image,
+    edit
   };
 };
 const mapDispatchToProps = {

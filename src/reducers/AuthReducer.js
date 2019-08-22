@@ -1,10 +1,19 @@
-import { EMAIL, PASSWORD, ERROR, JWT } from "../actions/types";
+import {
+  EMAIL,
+  PASSWORD,
+  ERROR,
+  JWT,
+  LOADING,
+  OFFLINE_MODE
+} from "../actions/types";
 
 const INITIAL_STATE = {
   email: "",
   password: "",
   error: "",
-  jwt: ""
+  jwt: "",
+  loading: false,
+  offline: false
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -17,6 +26,10 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, error: action.payload };
     case JWT:
       return { ...state, jwt: action.payload };
+    case OFFLINE_MODE:
+      return { ...state, offline: action.payload };
+    case LOADING:
+      return { ...state, loading: action.payload };
     default:
       return state;
   }
