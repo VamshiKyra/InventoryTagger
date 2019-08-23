@@ -61,8 +61,6 @@ class Router extends Component {
   }
 
   componentDidMount() {
-    console.log("LOCATION");
-
     Geolocation.getCurrentPosition(
       position => {
         console.log("POSITION", position);

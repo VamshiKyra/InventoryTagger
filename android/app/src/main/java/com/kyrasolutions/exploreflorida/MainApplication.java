@@ -7,6 +7,8 @@ import com.facebook.react.PackageList;
 import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
 import com.facebook.react.bridge.JavaScriptExecutorFactory;
 import com.facebook.react.ReactApplication;
+import com.BV.LinearGradient.LinearGradientPackage;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.reactnativecommunity.netinfo.NetInfoPackage;
 import com.reactnativecommunity.geolocation.GeolocationPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;

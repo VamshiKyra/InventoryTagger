@@ -14,6 +14,7 @@ import firebase from "react-native-firebase";
 import { Spinner } from "../../common";
 import moment from "moment";
 import Form from "./Form";
+import DropdownAlert from "react-native-dropdownalert";
 import RNFetchBlob from "rn-fetch-blob";
 import { Button } from "../../common";
 import {
@@ -33,7 +34,8 @@ import {
   createTs,
   modifyTs,
   modifyUser,
-  imageChange
+  imageChange,
+  getAddress
 } from "../../actions";
 let { width, height } = Dimensions.get("window");
 const Blob = RNFetchBlob.polyfill.Blob;
@@ -48,6 +50,9 @@ class EditPage extends Component {
     };
   }
   componentDidMount() {
+    const { latitude, longitude } = this.props;
+    console.log(latitude, longitude);
+    this.props.getAddress(latitude, longitude);
     if (this.props.edit) {
       if (
         this.props.navigation &&
@@ -60,7 +65,6 @@ class EditPage extends Component {
         list.map(item => {
           if (item.uid == uid) {
             console.log("Item", item);
-            this.setState({ selectItem: item });
             this.props.typeChange(item.type);
             this.props.descriptionChange(item.description);
             this.props.locationChange(item.location_name);
@@ -78,32 +82,62 @@ class EditPage extends Component {
     }
   }
   onSubmit(image) {
-    const {
-      type,
-      description,
-      location_name,
-      address,
-      State,
-      zip,
-      latitude,
-      longitude,
-      phone,
-      city
-    } = this.props;
-    const inventory = {
-      type,
-      description,
-      location_name,
-      address,
-      State,
-      zip,
-      latitude,
-      longitude,
-      phone,
-      image,
-      city
-    };
-    this.props.addInventory(inventory);
+    if (image) {
+      const {
+        type,
+        description,
+        location_name,
+        address,
+        State,
+        zip,
+        latitude,
+        longitude,
+        phone,
+        city
+      } = this.props;
+      const inventory = {
+        type,
+        description,
+        location_name,
+        address,
+        State,
+        zip,
+        latitude,
+        longitude,
+        phone,
+        image,
+        city
+      };
+      this.props.addInventory(inventory);
+    } else {
+      const {
+        type,
+        description,
+        location_name,
+        address,
+        State,
+        zip,
+        latitude,
+        longitude,
+        phone,
+        city,
+        image
+      } = this.props;
+      const inventory = {
+        type,
+        description,
+        location_name,
+        address,
+        State,
+        zip,
+        latitude,
+        longitude,
+        phone,
+        image,
+        city
+      };
+      this.props.addInventory(inventory);
+    }
     this.props.navigation.navigate("Inventory");
   }
   uploadImage(mime = "image/jpeg") {
@@ -150,65 +184,121 @@ class EditPage extends Component {
   }
 
   checkOffline() {
-    this.setState({ loading: true });
-    if (!this.props.offline) {
-      const {
-        type,
-        description,
-        location_name,
-        address,
-        city,
-        State,
-        zip,
-        latitude,
-        longitude,
-        phone,
-        image,
-        edit
-      } = this.props;
-      const itemList = {
-        type,
-        description,
-        location_name,
-        address,
-        city,
-        State,
-        zip,
-        latitude,
-        longitude,
-        phone,
-        image,
-        edit
-      };
-      console.log("itemList", itemList);
-      AsyncStorage.getItem("Items").then(item => {
-        if (item) {
-          console.log("items", item);
-          let ArrayItems = [];
-          ArrayItems = JSON.parse(item);
-          console.log("ArrayItems", ArrayItems);
-          ArrayItems.push(itemList);
-          AsyncStorage.setItem("Items", JSON.stringify(ArrayItems));
-          this.props.navigation.navigate("Inventory");
-        } else {
-          let ArrayItems = [];
-          ArrayItems.push(itemList);
-          console.log("No items", ArrayItems);
-          AsyncStorage.setItem("Items", JSON.stringify(ArrayItems));
-          AsyncStorage.getItem("Items").then(e => console.log(e));
-          this.props.navigation.navigate("Inventory");
-        }
-      });
-      this.setState({ loading: false });
+    let error = this.validation();
+    if (error && error.length > 0) {
+      this.dropDownAlertRef.alertWithType("error", "Error", error);
     } else {
-      this.uploadImage();
+      this.setState({ loading: true });
+      if (this.props.offline) {
+        const {
+          type,
+          description,
+          location_name,
+          address,
+          city,
+          State,
+          zip,
+          latitude,
+          longitude,
+          phone,
+          image
+        } = this.props;
+        const itemList = {
+          type,
+          description,
+          location_name,
+          address,
+          city,
+          State,
+          zip,
+          latitude,
+          longitude,
+          phone,
+          image
+        };
+        AsyncStorage.getItem("Items").then(item => {
+          if (item) {
+            let ArrayItems = [];
+            ArrayItems = JSON.parse(item);
+            ArrayItems.push(itemList);
+            AsyncStorage.setItem("Items", JSON.stringify(ArrayItems));
+            this.props.navigation.navigate("Inventory");
+          } else {
+            let ArrayItems = [];
+            ArrayItems.push(itemList);
+            AsyncStorage.setItem("Items", JSON.stringify(ArrayItems));
+            AsyncStorage.getItem("Items").then(e => console.log(e));
+            this.props.navigation.navigate("Inventory");
+          }
+        });
+        this.setState({ loading: false });
+      } else {
+        this.onSubmit();
+      }
+    }
+  }
+  validation() {
+    let error_msg = "";
+    const {
+      type,
+      description,
+      location_name,
+      address,
+      city,
+      State,
+      zip,
+      phone,
+      image
+    } = this.props;
+    if (this.isEmpty(type)) {
+      error_msg += "Type is required\n";
+    }
+    if (this.isEmpty(description)) {
+      error_msg += "Description is required\n";
+    }
+    if (this.isEmpty(location_name)) {
+      error_msg += "Location Name is required\n";
+    }
+    if (this.isEmpty(address)) {
+      error_msg += "Address is required\n";
+    }
+    if (this.isEmpty(city)) {
+      error_msg += "City is required\n";
+    }
+    if (this.isEmpty(State)) {
+      error_msg += "State is required\n";
+    }
+    if (this.isEmpty(zip)) {
+      error_msg += "Zip code is required\n";
+    }
+    if (this.isEmpty(phone)) {
+      error_msg += "Phone is required\n";
+    }
+    if (this.isEmpty(image)) {
+      error_msg += "Image is required\n";
+    }
+    return error_msg;
+  }
+  isEmpty(key) {
+    if (key === "" || key === null || key === undefined) {
+      return true;
+    } else {
+      return false;
     }
   }
 
   render() {
     return (
       <Container>
-        <Head onSubmit={() => this.checkOffline()} />
+        <DropdownAlert
+          ref={ref => (this.dropDownAlertRef = ref)}
+          zIndex={200}
+          messageNumOfLines={10}
+        />
+        <Head
+          onSubmit={() => this.checkOffline()}
+          navigation={this.props.navigation}
+        />
         <Content>
           <Form
             ref={instance => {
@@ -218,11 +308,12 @@ class EditPage extends Component {
             onSubmit={() => this.checkOffline()}
           />
 
-          {this.state.loading && (
+          {/* {!this.state.loading && (
             <View style={styles.spinnerLogo}>
-              <Spinner />
+              
             </View>
-          )}
+          )} */}
+          <Spinner loader={!this.state.loading} />
         </Content>
         <Footer style={styles.footer}>
           <TouchableOpacity>
@@ -264,9 +355,7 @@ const styles = StyleSheet.create({
     width: width * 0.5
   },
   spinnerLogo: {
-    alignItems: "center",
-    justifyContent: "center",
-    alignContent: "center",
+    left: width * 0.45,
     position: "absolute"
   },
   footer: {
@@ -327,7 +416,8 @@ const mapDispatchToProps = {
   createTs,
   modifyTs,
   modifyUser,
-  imageChange
+  imageChange,
+  getAddress
 };
 
 export default connect(

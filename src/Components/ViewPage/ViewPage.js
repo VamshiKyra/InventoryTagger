@@ -44,10 +44,8 @@ class ViewPage extends Component {
     ) {
       if (this.props.navigation.state.params.uid) {
         const { uid } = this.props.navigation.state.params;
-        console.log("UID", uid, list);
         list.map(item => {
           if (item.uid == uid) {
-            console.log("ITEM", item, item.uid, uid);
             this.setState({ selectItem: item });
           }
         });
@@ -59,7 +57,6 @@ class ViewPage extends Component {
     }
   }
   onEdit() {
-    console.log("UID1", this.state.selectItem);
     if (this.state.selectItem && this.state.selectItem.uid) {
       this.props.editMode(true);
       this.props.navigation.navigate("EditPage", {

@@ -40,21 +40,21 @@ import { Spinner, Styles, Button } from "../../common";
 import Picker from "react-native-picker-select";
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 const validationSchema = Yup.object().shape({
-  item: Yup.string().required(),
-  description: Yup.string().required(),
-  locationName: Yup.string().required("Location Name is required"),
-  City: Yup.string().required("City is required"),
-  address: Yup.string().required("Address is required"),
-  State: Yup.string().required("State is required"),
-  Zip: Yup.string().required("Zip is required"),
-  Country: Yup.string()
-    .required("Country is required")
-    .default(() => {
-      return "USA";
-    }),
-  Cellphone: Yup.string()
-    .matches(phoneRegExp, "Phone number is not valid")
-    .required("Phone is required")
+  // item: Yup.string().required(),
+  // description: Yup.string().required(),
+  // locationName: Yup.string().required("Location Name is required"),
+  // City: Yup.string().required("City is required"),
+  // address: Yup.string().required("Address is required"),
+  // State: Yup.string().required("State is required"),
+  // Zip: Yup.string().required("Zip is required"),
+  // Country: Yup.string()
+  //   .required("Country is required")
+  //   .default(() => {
+  //     return "USA";
+  //   }),
+  // Cellphone: Yup.string()
+  //   .matches(phoneRegExp, "Phone number is not valid")
+  //   .required("Phone is required")
 });
 const MyInput = compose(
   makeInputGreatAgain,
@@ -71,23 +71,18 @@ class Form extends Component {
   }
   componentDidMount() {
     if (!this.props.edit) {
-      Geolocation.getCurrentPosition(
-        position => {
-          const { latitude, longitude } = position.coords;
-          this.props.latitudeChange(latitude);
-          this.props.longitudeChange(longitude);
-        },
-        error => Alert.alert("Unable to find location"),
-        { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
-      );
+      // Geolocation.getCurrentPosition(
+      //   position => {
+      //     const { latitude, longitude } = position.coords;
+      //     this.props.latitudeChange(latitude);
+      //     this.props.longitudeChange(longitude);
+      //   },
+      //   error => Alert.alert("Unable to find location"),
+      //   { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+      // );
     }
   }
-  onSubmit = () => {
-    this.props.onSubmit();
-  };
-  componentWillMount() {
-    console.log("Form props", this.props);
-  }
+
   renderImage() {
     const picture = this.props.image;
     return (
@@ -115,7 +110,7 @@ class Form extends Component {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View>
           <Formik
-            onSubmit={this.onSubmit.bind(this)}
+            onSubmit={() => Keyboard.dismiss()}
             validationSchema={validationSchema}
             render={() => {
               return (
@@ -149,17 +144,19 @@ class Form extends Component {
                         <Text style={styles.labelText}>Description</Text>
                       </View>
                       <View>
-                        <Textarea
-                          rowSpan={5}
+                        <TextInput
+                          multiline={true}
+                          numberOfLines={4}
                           placeholder="Write a description…"
                           style={[
                             styles.itemWidth,
-                            { color: "#222222", fontSize: 17 }
+                            { color: "#222222", fontSize: 17, height: 80 }
                           ]}
                           onChangeText={description =>
                             this.props.descriptionChange(description)
                           }
                           value={this.props.description}
+                          returnKeyType="next"
                         />
                       </View>
                     </View>
@@ -242,6 +239,7 @@ class Form extends Component {
                     value={this.props.phone}
                     onChangeText={Phone => this.props.phoneChange(Phone)}
                     autoCorrect={false}
+                    keyboardType="numeric"
                   />
                 </Forms>
               );

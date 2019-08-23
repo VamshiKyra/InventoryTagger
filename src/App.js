@@ -16,6 +16,7 @@ import reducers from "./reducers";
 import ReduxThunk from "redux-thunk";
 import firebase from "react-native-firebase";
 import Geolocation from "@react-native-community/geolocation";
+
 const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 class App extends Component {
   constructor() {
@@ -24,7 +25,9 @@ class App extends Component {
       isAuthenticated: false
     };
   }
-
+  // componentDidMount() {
+  //   SplashScreen.hide();
+  // }
   //   async componentDidMount() {
   //     // SplashScreen.hide();
   //     // AsyncStorage.getItem("notification")
@@ -160,6 +163,7 @@ class App extends Component {
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
+        <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
         <View style={{ flex: 1 }}>
           <Provider store={store}>
             <Router />

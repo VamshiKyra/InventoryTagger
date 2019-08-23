@@ -45,6 +45,10 @@ target 'InventoryTagger' do
 
   pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
 
+  pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+
   target 'InventoryTaggerTests' do
     inherit! :search_paths
     # Pods for testing

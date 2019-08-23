@@ -19,7 +19,10 @@ import {
 } from "./types";
 import firebase from "react-native-firebase";
 import { AsyncStorage } from "react-native";
+import axios from "axios";
 import { StackActions, NavigationActions } from "react-navigation";
+import * as Constant from "../common/Constants";
+const GOOGLE_APIKEY = Constant.GOOGLE_MAP_KEY;
 import moment from "moment";
 export const addInventory = ({
   type,
@@ -77,7 +80,60 @@ export const addInventory = ({
       .catch(e => console.log(e));
   };
 };
-
+export const getAddress = (latitude, longitude) => {
+  return dispatch => {
+    axios
+      .get(
+        "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
+          latitude +
+          "," +
+          longitude +
+          "&key=" +
+          GOOGLE_APIKEY,
+        {}
+      )
+      .then(res => res.data)
+      .then(data => {
+        console.log(data);
+        if (data && data.results[0] && data.results[0].address_components) {
+          const results = data.results[0].address_components;
+          let streetName = "";
+          results.map(result => {
+            const type = result.types;
+            if (type.includes("street_number") || type.includes("route")) {
+              console.log("longName", result.long_name);
+              // streetName.concat(result.long_name);
+              streetName += result.long_name + " ";
+            }
+            if (type.includes("locality")) {
+              dispatch({
+                type: CITY,
+                payload: result.long_name
+              });
+            }
+            if (type.includes("administrative_area_level_1")) {
+              dispatch({
+                type: STATE,
+                payload: result.short_name
+              });
+            }
+            if (type.includes("postal_code")) {
+              dispatch({
+                type: ZIP,
+                payload: result.long_name
+              });
+            }
+          });
+          console.log("streetName", streetName);
+          dispatch({
+            type: ADDRESS,
+            payload: streetName
+          });
+        }
+      })
+      .catch(e => console.log(e));
+  };
+};
 export const editMode = text => {
   return {
     type: EDIT_MODE,

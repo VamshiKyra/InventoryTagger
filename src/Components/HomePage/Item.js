@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import {
   Container,
   Header,
@@ -17,7 +17,14 @@ import {
 const Item = props => {
   return (
     <View>
-      <ListItem thumbnail>
+      <ListItem
+        thumbnail
+        onPress={() =>
+          props.navigation.navigate("ViewPage", {
+            uid: props.item.uid
+          })
+        }
+      >
         <Left>
           {/* <Thumbnail square source={{ uri: '../../Img/photo-generator.png' }} /> */}
           <Thumbnail square source={{ uri: props.item.image }} />
@@ -29,14 +36,7 @@ const Item = props => {
           </Text>
         </Body>
         <Right>
-          <Button
-            transparent
-            onPress={() =>
-              props.navigation.navigate("ViewPage", {
-                uid: props.item.uid
-              })
-            }
-          >
+          <Button transparent>
             <Icon name="arrow-forward" style={{ color: "#333333" }} />
           </Button>
         </Right>

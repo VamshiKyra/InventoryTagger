@@ -19,6 +19,7 @@ import { StackActions, NavigationActions } from "react-navigation";
 import { connect } from "react-redux";
 import { emailChange, passwordChange, loginUser } from "./actions";
 import { Spinner, Styles, Button } from "./common";
+import LinearGradient from "react-native-linear-gradient";
 const { width, height } = Dimensions.get("window");
 const background = require("./Img/background.png");
 class Login extends Component {
@@ -212,8 +213,9 @@ class Login extends Component {
     return (
       <ImageBackground
         source={background}
-        style={styles.background}
+        style={[styles.background]}
         resizeMode="cover"
+        blurRadius={8}
       >
         <View style={styles.mainContainer}>
           <View style={styles.markWrap}>
