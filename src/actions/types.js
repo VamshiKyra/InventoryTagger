@@ -25,3 +25,21 @@ export const MODIFY_TS = "modify_ts";
 export const LIST = "list";
 export const EDIT_MODE = "edit_mode";
 export const OFFLINE_MODE = "offline_mode";
+export const UID = "uid";
+export const LIST_COUNT = "list_count";
+export const ADMIN_LIST_COUNT = "admin_list_count";
+export const TOTAL_COUNT = "total_count";
+
+//Admin
+export const USER = "user";
+export const ADMIN = "admin";
+export const ADMIN_LIST = "admin_list";
+export const USER_ID = "user_id";
+
+//Search List
+export const SEARCH_LIST = "search_list";
+export const SEARCH_TEXT = "search_text";
+export const FILTER_TYPE = "filter_type";
+export const FILTER_USER = "filter_user";
+export const FILTER_DATE = "filter_date";
+export const SEARCH_LIST_COUNT = "search_list_count";

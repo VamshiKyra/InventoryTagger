@@ -29,7 +29,39 @@ import {
 import * as Constants from "../../common/Constants";
 let { width, height } = Dimensions.get("window");
 class Camera extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      type: RNCamera.Constants.Type.back,
+      back: true,
+      flash_Mode: RNCamera.Constants.FlashMode.off,
+      flash: false
+    };
+  }
+  reverseCamera() {
+    const { type } = this.state;
+    if (type == RNCamera.Constants.Type.back) {
+      this.setState({ type: RNCamera.Constants.Type.front, back: false });
+    } else {
+      this.setState({ type: RNCamera.Constants.Type.back, back: true });
+    }
+  }
+  flashMode() {
+    const { flash } = this.state;
+    if (flash) {
+      this.setState({
+        flash_Mode: RNCamera.Constants.FlashMode.off,
+        flash: false
+      });
+    } else {
+      this.setState({
+        flash_Mode: RNCamera.Constants.FlashMode.on,
+        flash: true
+      });
+    }
+  }
   render() {
+    const { type, flash_Mode, flash } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.headerContainer}>
@@ -50,8 +82,8 @@ class Camera extends PureComponent {
             this.camera = ref;
           }}
           style={styles.preview}
-          type={RNCamera.Constants.Type.back}
-          flashMode={RNCamera.Constants.FlashMode.on}
+          type={type}
+          flashMode={flash_Mode}
           androidCameraPermissionOptions={{
             title: "Permission to use camera",
             message: "We need your permission to use your camera",
@@ -85,8 +117,10 @@ class Camera extends PureComponent {
               name="ios-reverse-camera"
               style={{
                 fontSize: 50,
-                color: "#222222"
+                color: "#222222",
+                backgroundColor: "white"
               }}
+              onPress={() => this.reverseCamera()}
             />
             <TouchableOpacity onPress={this.takePicture.bind(this)}>
               <View style={styles.bigcircle}>
@@ -94,7 +128,14 @@ class Camera extends PureComponent {
               </View>
             </TouchableOpacity>
             <View>
-              <Icon type="Entypo" name="flash" style={{ fontSize: 40 }} />
+              <Icon
+                type="Entypo"
+                name="flash"
+                style={[
+                  flash ? { fontSize: 40, color: "#F4D03F" } : { fontSize: 40 }
+                ]}
+                onPress={() => this.flashMode()}
+              />
             </View>
           </View>
         </View>

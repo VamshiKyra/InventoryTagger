@@ -13,7 +13,27 @@ import {
   Text,
   Body
 } from "native-base";
-import { editMode } from "../../actions";
+import {
+  editMode,
+  typeChange,
+  descriptionChange,
+  locationChange,
+  addressChange,
+  cityChange,
+  stateChange,
+  zipChange,
+  latitudeChange,
+  longitudeChange,
+  phoneChange,
+  imageChange,
+  uidChange,
+  createUser,
+  createTs,
+  modifyUser,
+  modifyTs,
+  userId
+} from "../../actions";
+import moment from "moment";
 let { width, height } = Dimensions.get("window");
 class ViewPage extends Component {
   constructor(props) {
@@ -32,11 +52,14 @@ class ViewPage extends Component {
         phone: "",
         image: "",
         uid: ""
-      }
+      },
+      date: "",
+      time: ""
     };
   }
   componentDidMount() {
-    const list = this.props.list;
+    let list = this.props.list;
+    let admin_list = this.props.admin_list;
     if (
       this.props.navigation &&
       this.props.navigation.state &&
@@ -44,25 +67,77 @@ class ViewPage extends Component {
     ) {
       if (this.props.navigation.state.params.uid) {
         const { uid } = this.props.navigation.state.params;
-        list.map(item => {
-          if (item.uid == uid) {
-            this.setState({ selectItem: item });
-          }
-        });
+        console.log("Uid", uid)
+        if (list && list.length > 0) {
+          list.map(item => {
+            if (item.uid == uid) {
+              this.setItem(item, false);
+            }
+          });
+        }
+        if (admin_list && admin_list.length > 0) {
+          admin_list.map(item => {
+            console.log("itemsadd", item.uid, uid)
+            if (item.uid == uid) {
+              this.setItem(item, true);
+            }
+          });
+        }
       }
-      //   if (this.props.navigation.state.params.data) {
-      //     console.log(this.props.navigation.state.params.data);
-      //     this.setState({ selectItem: this.props.navigation.state.params.data });
-      //   }
     }
   }
-  onEdit() {
-    if (this.state.selectItem && this.state.selectItem.uid) {
-      this.props.editMode(true);
-      this.props.navigation.navigate("EditPage", {
-        uid: this.state.selectItem.uid
-      });
+  setItem(item, admin) {
+    console.log("i", item)
+
+    const {
+      type,
+      description,
+      location_name,
+      address,
+      city,
+      State,
+      zip,
+      latitude,
+      longitude,
+      phone,
+      image,
+      create_user,
+      create_ts,
+      modify_user,
+      modify_ts,
+      uid
+    } = item;
+    this.props.typeChange(type);
+    this.props.descriptionChange(description);
+    this.props.locationChange(location_name);
+    this.props.addressChange(address);
+    this.props.cityChange(city);
+    this.props.stateChange(State);
+    this.props.zipChange(zip);
+    this.props.latitudeChange(latitude);
+    this.props.longitudeChange(longitude);
+    this.props.phoneChange(phone);
+    this.props.imageChange(image);
+    this.props.uidChange(uid);
+    this.props.createUser(create_user);
+    this.props.createTs(create_ts);
+    this.props.modifyUser(modify_user);
+    this.props.modifyTs(modify_ts);
+    const date = moment(create_ts).format("MM/DD/YYYY");
+    const time = moment(create_ts).format("LT");
+    if (admin) {
+      const { user_id } = item;
+      console.log("user_id", user_id)
+      this.props.userId(user_id);
     }
+    this.setState({ date, time });
+  }
+  onEdit() {
+    const { uid } = this.props;
+    this.props.editMode(true);
+    this.props.navigation.navigate("EditPage", {
+      uid
+    });
   }
   render() {
     const {
@@ -76,8 +151,11 @@ class ViewPage extends Component {
       latitude,
       longitude,
       phone,
-      image
-    } = this.state.selectItem;
+      image,
+      create_user,
+      create_ts
+    } = this.props;
+    const { date, time } = this.state;
     return (
       <Container>
         <Head
@@ -131,7 +209,7 @@ class ViewPage extends Component {
             </CardItem>
             <CardItem style={[styles.paddingZero, { paddingBottom: 10 }]}>
               <Text style={styles.footer}>
-                Added by Mike Long on 08/08/2019 at 2:15 PM EST
+                Added by {create_user} on {date} at {time} EST
               </Text>
             </CardItem>
           </Card>
@@ -168,13 +246,63 @@ const styles = StyleSheet.create({
   }
 });
 const mapStateToProps = state => {
-  const { list } = state.inventorylist;
+  const { list, admin_list } = state.inventorylist;
+  const {
+    type,
+    description,
+    location_name,
+    address,
+    State,
+    zip,
+    city,
+    latitude,
+    longitude,
+    phone,
+    image,
+    create_user,
+    create_ts,
+    modify_user,
+    modify_ts
+  } = state.add;
   return {
-    list
+    list,
+    type,
+    description,
+    location_name,
+    address,
+    State,
+    zip,
+    city,
+    latitude,
+    longitude,
+    phone,
+    image,
+    create_user,
+    create_ts,
+    modify_user,
+    modify_ts,
+    admin_list
   };
 };
 const mapDispatchToProps = {
-  editMode
+  editMode,
+  typeChange,
+  descriptionChange,
+  locationChange,
+  addressChange,
+  cityChange,
+  stateChange,
+  zipChange,
+  latitudeChange,
+  longitudeChange,
+  phoneChange,
+  imageChange,
+  uidChange,
+  createUser,
+  createTs,
+  modifyUser,
+  modifyTs,
+  userId
 };
 
 export default connect(

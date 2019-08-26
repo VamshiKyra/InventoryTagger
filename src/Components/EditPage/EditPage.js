@@ -35,7 +35,9 @@ import {
   modifyTs,
   modifyUser,
   imageChange,
-  getAddress
+  getAddress,
+  updateInventory,
+  deleteInventory
 } from "../../actions";
 let { width, height } = Dimensions.get("window");
 const Blob = RNFetchBlob.polyfill.Blob;
@@ -50,145 +52,18 @@ class EditPage extends Component {
     };
   }
   componentDidMount() {
-    const { latitude, longitude } = this.props;
-    console.log(latitude, longitude);
-    this.props.getAddress(latitude, longitude);
-    if (this.props.edit) {
-      if (
-        this.props.navigation &&
-        this.props.navigation.state &&
-        this.props.navigation.state.params &&
-        this.props.navigation.state.params.uid
-      ) {
-        const { uid } = this.props.navigation.state.params;
-        const { list } = this.props;
-        list.map(item => {
-          if (item.uid == uid) {
-            console.log("Item", item);
-            this.props.typeChange(item.type);
-            this.props.descriptionChange(item.description);
-            this.props.locationChange(item.location_name);
-            this.props.addressChange(item.address);
-            this.props.cityChange(item.city);
-            this.props.stateChange(item.State);
-            this.props.zipChange(item.zip);
-            this.props.latitudeChange(item.latitude);
-            this.props.longitudeChange(item.longitude);
-            this.props.phoneChange(item.phone);
-            this.props.imageChange(item.image);
-          }
-        });
-      }
+    const { latitude, longitude, edit } = this.props;
+    if (!edit) {
+      this.props.getAddress(latitude, longitude);
     }
   }
-  onSubmit(image) {
-    if (image) {
-      const {
-        type,
-        description,
-        location_name,
-        address,
-        State,
-        zip,
-        latitude,
-        longitude,
-        phone,
-        city
-      } = this.props;
-      const inventory = {
-        type,
-        description,
-        location_name,
-        address,
-        State,
-        zip,
-        latitude,
-        longitude,
-        phone,
-        image,
-        city
-      };
-      this.props.addInventory(inventory);
-    } else {
-      const {
-        type,
-        description,
-        location_name,
-        address,
-        State,
-        zip,
-        latitude,
-        longitude,
-        phone,
-        city,
-        image
-      } = this.props;
-      const inventory = {
-        type,
-        description,
-        location_name,
-        address,
-        State,
-        zip,
-        latitude,
-        longitude,
-        phone,
-        image,
-        city
-      };
-      this.props.addInventory(inventory);
-    }
-    this.props.navigation.navigate("Inventory");
-  }
-  uploadImage(mime = "image/jpeg") {
-    const { uri } = this.props.navigation.state.params;
-    const newUri = uri.toString();
-    const newUriIos = newUri.replace("file://", "");
-    // navigator.geolocation.getCurrentPosition(position => {
-    //   const latlng = {
-    //     latitude: position.coords.latitude,
-    //     longitude: position.coords.longitude
-    //   };
-
-    // });
-    return new Promise((resolve, reject) => {
-      const uploadUri = Platform.OS === "ios" ? newUriIos : uri;
-      let uploadBlob = null;
-      const imageName = moment().valueOf();
-      const imageRef = firebase.storage().ref(`/public/${imageName}`);
-      fs.readFile(uploadUri, "base64")
-        .then(data => {
-          return Blob.build(data, { type: `${mime};BASE64` });
-        })
-        .then(blob => {
-          uploadBlob = blob;
-          return imageRef.put(blob._ref, { contentType: mime });
-        })
-        .then(() => {
-          uploadBlob.close();
-          console.log(imageRef.getDownloadURL());
-          return imageRef.getDownloadURL();
-        })
-        .then(url => {
-          resolve(url);
-          // this.props.uploadImages(imageName, latlng, url);
-          this.onSubmit(url);
-          this.setState({ loading: false });
-        })
-        .catch(error => {
-          reject(error);
-          alert("error please try again", JSON.stringify(error));
-          this.setState({ loading: false });
-        });
-    });
-  }
-
   checkOffline() {
+    this.setState({ loading: true });
     let error = this.validation();
     if (error && error.length > 0) {
       this.dropDownAlertRef.alertWithType("error", "Error", error);
+      this.setState({ loading: false });
     } else {
-      this.setState({ loading: true });
       if (this.props.offline) {
         const {
           type,
@@ -233,9 +108,118 @@ class EditPage extends Component {
         });
         this.setState({ loading: false });
       } else {
-        this.onSubmit();
+        const { image } = this.props;
+        if (image.toString().includes("file:")) {
+          this.uploadImage(image);
+        } else {
+          this.onSubmit(image);
+        }
       }
     }
+  }
+  uploadImage(uri) {
+    const mime = "image/jpeg";
+    const newUri = uri.toString();
+    const newUriIos = newUri.replace("file://", "");
+    return new Promise((resolve, reject) => {
+      const uploadUri = Platform.OS === "ios" ? newUriIos : uri;
+      let uploadBlob = null;
+      const imageName = moment().valueOf();
+      const imageRef = firebase.storage().ref(`/public/${imageName}`);
+      fs.readFile(uploadUri, "base64")
+        .then(data => {
+          return Blob.build(data, { type: `${mime};BASE64` });
+        })
+        .then(blob => {
+          uploadBlob = blob;
+          return imageRef.put(blob._ref, { contentType: mime });
+        })
+        .then(() => {
+          uploadBlob.close();
+          console.log(imageRef.getDownloadURL());
+          return imageRef.getDownloadURL();
+        })
+        .then(url => {
+          resolve(url);
+          // this.props.uploadImages(imageName, latlng, url);
+          this.onSubmit(url);
+          this.setState({ loading: false });
+        })
+        .catch(error => {
+          reject(error);
+          alert("error please try again", JSON.stringify(error));
+          this.setState({ loading: false });
+        });
+    });
+  }
+  onSubmit(image) {
+    const {
+      type,
+      description,
+      location_name,
+      address,
+      State,
+      zip,
+      latitude,
+      longitude,
+      phone,
+      city,
+      edit,
+      uid,
+      create_user,
+      create_ts,
+      modify_user,
+      modify_ts,
+      user_id
+    } = this.props;
+
+    if (edit) {
+      const inventory = {
+        type,
+        description,
+        location_name,
+        address,
+        State,
+        zip,
+        latitude,
+        longitude,
+        phone,
+        image,
+        city,
+        uid,
+        create_user,
+        create_ts,
+        user_id
+      };
+      console.log("inventory", inventory);
+      this.dropDownAlertRef.alertWithType(
+        "success",
+        "Updated is Success",
+        "Record updated successfully"
+      );
+      this.props.updateInventory(inventory, this.props.admin);
+    } else {
+      const inventory = {
+        type,
+        description,
+        location_name,
+        address,
+        State,
+        zip,
+        latitude,
+        longitude,
+        phone,
+        image,
+        city
+      };
+      this.dropDownAlertRef.alertWithType(
+        "success",
+        "Saved Success",
+        "Record added to the inventory"
+      );
+      this.props.addInventory(inventory);
+    }
+    this.props.navigation.navigate("Inventory");
   }
   validation() {
     let error_msg = "";
@@ -286,8 +270,13 @@ class EditPage extends Component {
       return false;
     }
   }
-
+  deleteItem() {
+    const { uid } = this.props;
+    this.props.deleteInventory(uid);
+    this.props.navigation.navigate("Inventory");
+  }
   render() {
+    const { loading } = this.state;
     return (
       <Container>
         <DropdownAlert
@@ -307,16 +296,12 @@ class EditPage extends Component {
             navigation={this.props.navigation}
             onSubmit={() => this.checkOffline()}
           />
-
-          {/* {!this.state.loading && (
-            <View style={styles.spinnerLogo}>
-              
-            </View>
-          )} */}
-          <Spinner loader={!this.state.loading} />
+          {loading && <Spinner loader={loading} />}
         </Content>
         <Footer style={styles.footer}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("Camera")}
+          >
             <View style={styles.button}>
               <Icon
                 type="FontAwesome5"
@@ -326,7 +311,7 @@ class EditPage extends Component {
               <Text style={styles.retake}> Retake</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => this.deleteItem()}>
             <View style={styles.button}>
               <Text style={styles.delete}>Delete Item</Text>
             </View>
@@ -378,9 +363,15 @@ const mapStateToProps = state => {
     longitude,
     phone,
     image,
-    edit
+    edit,
+    create_user,
+    create_ts,
+    modify_user,
+    modify_ts,
+    uid,
+    user_id
   } = state.add;
-  const { list } = state.inventorylist;
+  const { admin } = state.inventorylist;
   const { offline } = state.auth;
   return {
     type,
@@ -394,9 +385,15 @@ const mapStateToProps = state => {
     longitude,
     phone,
     image,
-    list,
     edit,
-    offline
+    offline,
+    create_user,
+    create_ts,
+    modify_user,
+    modify_ts,
+    uid,
+    admin,
+    user_id
   };
 };
 const mapDispatchToProps = {
@@ -417,7 +414,9 @@ const mapDispatchToProps = {
   modifyTs,
   modifyUser,
   imageChange,
-  getAddress
+  getAddress,
+  updateInventory,
+  deleteInventory
 };
 
 export default connect(

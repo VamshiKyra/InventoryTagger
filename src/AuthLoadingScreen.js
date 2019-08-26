@@ -5,7 +5,8 @@ import {
   Button,
   StatusBar,
   StyleSheet,
-  View
+  View,
+  ImageBackground
 } from "react-native";
 // import {AsyncStorage} from "@react-native-community/async-storage";
 import SplashScreen from "react-native-splash-screen";
@@ -14,6 +15,7 @@ import {
   createSwitchNavigator,
   createAppContainer
 } from "react-navigation";
+const background = require("./Img/background.png");
 class AuthLoadingScreen extends React.Component {
   constructor() {
     super();
@@ -30,9 +32,16 @@ class AuthLoadingScreen extends React.Component {
   // Render any loading content that you like here
   render() {
     return (
-      <View style={styles.container}>
-        <ActivityIndicator />
-      </View>
+      <ImageBackground
+        source={background}
+        style={[styles.background]}
+        resizeMode="cover"
+        blurRadius={8}
+      >
+        <View style={styles.container}>
+          <ActivityIndicator />
+        </View>
+      </ImageBackground>
     );
   }
 }
@@ -42,6 +51,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center"
+  },
+  background: {
+    flex: 1
   }
 });
 

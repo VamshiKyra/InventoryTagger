@@ -15,7 +15,10 @@ import {
   MODIFY_TS,
   CITY,
   STATE,
-  EDIT_MODE
+  EDIT_MODE,
+  UID,
+  LOADING,
+  USER_ID
 } from "./types";
 import firebase from "react-native-firebase";
 import { AsyncStorage } from "react-native";
@@ -70,14 +73,109 @@ export const addInventory = ({
         phone,
         image,
         create_user: currentUser.displayName,
-        create_ts: moment().unix(),
+        create_ts: moment().valueOf(),
         modify_user: "",
         modify_ts: ""
       })
       .then(res => {
         console.log("added to inventory", res);
+        dispatch({ type: LOADING, payload: false });
+        dispatch({ type: TYPE, payload: "" });
+        dispatch({ type: DESCRIPTION, payload: "" });
+        dispatch({ type: LOCATION_NAME, payload: "" });
+        dispatch({ type: ADDRESS, payload: "" });
+        dispatch({ type: PHONE, payload: "" });
+        dispatch({ type: IMAGE, payload: "" });
+        dispatch({ type: CREATE_USER, payload: "" });
+        dispatch({ type: CREATE_TS, payload: "" });
+        dispatch({ type: MODIFY_USER, payload: "" });
+        dispatch({ type: MODIFY_TS, payload: "" });
+        dispatch({ type: CITY, payload: "" });
+        dispatch({ type: STATE, payload: "" });
+        dispatch({ type: UID, payload: "" });
+        dispatch({ type: USER_ID, payload: "" });
       })
       .catch(e => console.log(e));
+  };
+};
+export const updateInventory = ({
+  type,
+  description,
+  location_name,
+  address,
+  city,
+  State,
+  zip,
+  latitude,
+  longitude,
+  phone,
+  image,
+  uid,
+  create_user,
+  create_ts,
+  user_id
+}, admin) => {
+  return dispatch => {
+    let user = '';
+    console.log("admin", admin, type,
+      description,
+      location_name,
+      address,
+      city,
+      State,
+      zip,
+      latitude,
+      longitude,
+      phone,
+      image,
+      uid,
+      create_user,
+      create_ts,
+      user_id);
+    const { currentUser } = firebase.auth();
+    if (admin) {
+      user = user_id;
+    } else {
+      user = currentUser.uid;
+    }
+    firebase
+      .database()
+      .ref(`/tagger/inventory/${user}/${uid}`)
+      .set({
+        type,
+        description,
+        location_name,
+        address,
+        city,
+        State,
+        zip,
+        latitude,
+        longitude,
+        phone,
+        image,
+        create_user,
+        create_ts,
+        modify_user: currentUser.displayName,
+        modify_ts: moment().valueOf()
+      })
+      .then(res => {
+        console.log("update to inventory", res);
+        dispatch({ type: LOADING, payload: false });
+        dispatch({ type: TYPE, payload: "" });
+        dispatch({ type: DESCRIPTION, payload: "" });
+        dispatch({ type: LOCATION_NAME, payload: "" });
+        dispatch({ type: ADDRESS, payload: "" });
+        dispatch({ type: PHONE, payload: "" });
+        dispatch({ type: IMAGE, payload: "" });
+        dispatch({ type: CREATE_USER, payload: "" });
+        dispatch({ type: CREATE_TS, payload: "" });
+        dispatch({ type: MODIFY_USER, payload: "" });
+        dispatch({ type: MODIFY_TS, payload: "" });
+        dispatch({ type: CITY, payload: "" });
+        dispatch({ type: STATE, payload: "" });
+        dispatch({ type: UID, payload: "" });
+        dispatch({ type: USER_ID, payload: "" });
+      });
   };
 };
 export const getAddress = (latitude, longitude) => {
@@ -85,11 +183,11 @@ export const getAddress = (latitude, longitude) => {
     axios
       .get(
         "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
-          latitude +
-          "," +
-          longitude +
-          "&key=" +
-          GOOGLE_APIKEY,
+        latitude +
+        "," +
+        longitude +
+        "&key=" +
+        GOOGLE_APIKEY,
         {}
       )
       .then(res => res.data)
@@ -134,9 +232,51 @@ export const getAddress = (latitude, longitude) => {
       .catch(e => console.log(e));
   };
 };
+
+export const deleteInventory = uid => {
+  return dispatch => {
+    const { currentUser } = firebase.auth();
+    firebase
+      .database()
+      .ref(`/tagger/inventory/${currentUser.uid}`)
+      .child(uid)
+      .remove();
+  };
+};
+export const clearSelection = () => {
+  return dispatch => {
+    dispatch({ type: LOADING, payload: false });
+    dispatch({ type: TYPE, payload: "" });
+    dispatch({ type: DESCRIPTION, payload: "" });
+    dispatch({ type: LOCATION_NAME, payload: "" });
+    dispatch({ type: ADDRESS, payload: "" });
+    dispatch({ type: PHONE, payload: "" });
+    dispatch({ type: IMAGE, payload: "" });
+    dispatch({ type: CREATE_USER, payload: "" });
+    dispatch({ type: CREATE_TS, payload: "" });
+    dispatch({ type: MODIFY_USER, payload: "" });
+    dispatch({ type: MODIFY_TS, payload: "" });
+    dispatch({ type: CITY, payload: "" });
+    dispatch({ type: STATE, payload: "" });
+    dispatch({ type: UID, payload: "" });
+    dispatch({ type: USER_ID, payload: "" });
+  };
+};
 export const editMode = text => {
   return {
     type: EDIT_MODE,
+    payload: text
+  };
+};
+export const uidChange = text => {
+  return {
+    type: UID,
+    payload: text
+  };
+};
+export const userId = text => {
+  return {
+    type: USER_ID,
     payload: text
   };
 };
@@ -228,5 +368,18 @@ export const modifyTs = text => {
   return {
     type: MODIFY_TS,
     payload: text
+  };
+};
+export const adminPush = ({ uid, name, role, office, county }) => {
+  return dispatch => {
+    const { currentUser } = firebase.auth();
+    firebase
+      .database()
+      .ref(`/tagger/users/${currentUser.uid}`)
+      .push({ uid, name, role, office, county })
+      .then(res => {
+        console.log("admin push");
+        dispatch({ type: LOADING, payload: false });
+      }).catch(e => console.log("Error", e));
   };
 };

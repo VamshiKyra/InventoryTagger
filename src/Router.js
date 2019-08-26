@@ -13,13 +13,14 @@ import EditPage from "./Components/EditPage/EditPage";
 import ViewPage from "./Components/ViewPage/ViewPage";
 import Camera from "./Components/CameraPage/Camera";
 import Geolocation from "@react-native-community/geolocation";
-
+import Filters from "./Components/FilterPage/FilterPage";
 const LoginStackNew = createStackNavigator(
   {
     Inventory: { screen: Inventory },
     EditPage: { screen: EditPage },
     ViewPage: { screen: ViewPage },
-    Camera: { screen: Camera }
+    Camera: { screen: Camera },
+    Filters: { screen: Filters }
   },
   {
     initialRouteName: "Inventory",

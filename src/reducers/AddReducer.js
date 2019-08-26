@@ -15,7 +15,9 @@ import {
   MODIFY_TS,
   STATE,
   CITY,
-  EDIT_MODE
+  UID,
+  EDIT_MODE,
+  USER_ID
 } from "../actions/types";
 
 const INITIAL_STATE = {
@@ -35,11 +37,15 @@ const INITIAL_STATE = {
   create_ts: "",
   modify_user: "",
   modify_ts: "",
-  edit: false
+  uid: "",
+  edit: false,
+  user_id: ""
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case UID:
+      return { ...state, uid: action.payload };
     case TYPE:
       return { ...state, type: action.payload };
     case DESCRIPTION:
@@ -72,6 +78,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, modify_ts: action.payload };
     case EDIT_MODE:
       return { ...state, edit: action.payload };
+    case USER_ID:
+      return { ...state, user_id: action.payload };
     default:
       return state;
   }

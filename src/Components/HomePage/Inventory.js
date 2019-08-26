@@ -32,7 +32,10 @@ import {
   offlineMode,
   addInventory,
   latitudeChange,
-  longitudeChange
+  longitudeChange,
+  adminPush,
+  adminUsers,
+  usersInventory
 } from "../../actions";
 import firebase from "react-native-firebase";
 import NetInfo from "@react-native-community/netinfo";
@@ -54,7 +57,8 @@ class Inventory extends Component {
     };
   }
   componentDidMount() {
-    // AsyncStorage.setItem("Items", "");
+    this.props.adminUsers();
+    console.log("inventory");
     this.props.getInventory();
     this.unsubscribe = NetInfo.addEventListener(state => {
       if (state.isConnected === true) {
@@ -81,6 +85,17 @@ class Inventory extends Component {
   componentWillUnmount() {
     this.unsubscribe && this.unsubscribe();
     this.watchID != null && Geolocation.clearWatch(this.watchID);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // only update chart if the data has changed
+    if (prevProps.users !== this.props.users) {
+      // this.props.users.map((user,index) => {
+      //   this.props.usersInventory(user,index);
+      // });
+      console.log("Users", this.props.users)
+      this.props.usersInventory(this.props.users);
+    }
   }
   uploadImage({
     type,
@@ -153,8 +168,18 @@ class Inventory extends Component {
       alert("Unable to sync the files. Please try again later.");
     }
   };
+  adminPush() {
+    const user = {
+      id: "nuWxMAr7d3XrsqAyBrS426IDItD2",
+      name: "Prashant Mehta",
+      role: "general",
+      office: "Tallahassee",
+      county: "Leon County"
+    };
+    this.props.adminPush(user);
+  }
   render() {
-    const { list } = this.props;
+    const { list, admin_list, search_list } = this.props;
     return (
       <Container>
         <Head navigation={this.props.navigation} />
@@ -167,7 +192,18 @@ class Inventory extends Component {
         >
           <Content>
             <List style={{ backgroundColor: "#FFF" }}>
-              {list &&
+              {search_list &&
+                search_list.map((item, index) => {
+                  return (
+                    <Item
+                      key={index}
+                      item={item}
+                      navigation={this.props.navigation}
+                    />
+                  );
+                })
+              }
+              {list && search_list.length == 0 &&
                 list.map((item, index) => {
                   return (
                     <Item
@@ -176,7 +212,17 @@ class Inventory extends Component {
                       navigation={this.props.navigation}
                     />
                   );
-                })}
+                })}{
+                admin_list && search_list.length == 0 && admin_list.map((item, index) => {
+                  return (
+                    <Item
+                      key={index}
+                      item={item}
+                      navigation={this.props.navigation}
+                    />
+                  );
+                })
+              }
             </List>
           </Content>
           <TouchableOpacity onPress={() => this.syncFiles()}>
@@ -194,11 +240,15 @@ class Inventory extends Component {
   }
 }
 const mapStateToProps = state => {
-  const { list } = state.inventorylist;
+  const { list, users, admin_list } = state.inventorylist;
   const { offline } = state.auth;
+  const { search_list } = state.search;
   return {
     list,
-    offline
+    offline,
+    users,
+    admin_list,
+    search_list
   };
 };
 const mapDispatchToProps = {
@@ -206,7 +256,10 @@ const mapDispatchToProps = {
   offlineMode,
   addInventory,
   latitudeChange,
-  longitudeChange
+  longitudeChange,
+  adminPush,
+  adminUsers,
+  usersInventory
 };
 
 export default connect(

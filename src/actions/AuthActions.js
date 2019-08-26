@@ -42,6 +42,8 @@ export const loginUser = ({ email, password, navigation }) => {
         navigation.navigate("App");
       })
       .catch(error => {
+        alert("Something went wrong.", JSON.stringify(error))
+        dispatch({ type: LOADING, payload: false });
         console.log(error);
       });
   };
