@@ -37,9 +37,11 @@ export const ADMIN_LIST = "admin_list";
 export const USER_ID = "user_id";
 
 //Search List
+export const SEARCH_STATUS = "search_status";
 export const SEARCH_LIST = "search_list";
 export const SEARCH_TEXT = "search_text";
 export const FILTER_TYPE = "filter_type";
 export const FILTER_USER = "filter_user";
 export const FILTER_DATE = "filter_date";
+export const FILTER_COUNT = "filter_count";
 export const SEARCH_LIST_COUNT = "search_list_count";

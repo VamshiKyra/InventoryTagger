@@ -39,7 +39,8 @@ class Head extends Component {
     console.log("all", this.props)
   }
   render() {
-    const { list_count, admin_list_count, search_count } = this.props;
+    const { list_count, admin_list_count, search_count, search_status, filter_count } = this.props;
+    const count = search_status ? search_count : parseInt(list_count) + parseInt(admin_list_count);
     return (
       <View>
         <Header
@@ -124,7 +125,7 @@ class Head extends Component {
           ]}
         >
           <Text style={{ color: "#FFF" }}>
-            {search_count} of {parseInt(list_count) + parseInt(admin_list_count)} Items Listed • 0 Filters
+            {count} of {parseInt(list_count) + parseInt(admin_list_count)} Items Listed • {filter_count} Filters
           </Text>
         </View>
       </View>
@@ -135,7 +136,7 @@ class Head extends Component {
 const mapStateToProps = state => {
   const { type } = state.add;
   const { list, admin_list, admin_list_count, list_count } = state.inventorylist;
-  const { search_text, search_count } = state.search;
+  const { search_text, search_count, search_status, filter_count } = state.search;
   return {
     type,
     list,
@@ -143,7 +144,9 @@ const mapStateToProps = state => {
     search_text,
     admin_list_count,
     list_count,
-    search_count
+    search_count,
+    search_status,
+    filter_count
   };
 };
 const mapDispatchToProps = {

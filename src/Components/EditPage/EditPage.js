@@ -271,8 +271,12 @@ class EditPage extends Component {
     }
   }
   deleteItem() {
-    const { uid } = this.props;
-    this.props.deleteInventory(uid);
+    const { uid, user_id, admin } = this.props;
+    if (admin) {
+      this.props.deleteInventory(uid, user_id);
+    } else {
+      this.props.deleteInventory(uid, '');
+    }
     this.props.navigation.navigate("Inventory");
   }
   render() {

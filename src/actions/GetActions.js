@@ -40,6 +40,7 @@ export const adminUsers = () => {
           dispatch({ type: USER, payload: snap });
           dispatch({ type: ADMIN, payload: true });
         } else {
+          dispatch({ type: USER, payload: [] });
           dispatch({ type: ADMIN, payload: false });
         }
       });

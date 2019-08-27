@@ -77,7 +77,6 @@ class ViewPage extends Component {
         }
         if (admin_list && admin_list.length > 0) {
           admin_list.map(item => {
-            console.log("itemsadd", item.uid, uid)
             if (item.uid == uid) {
               this.setItem(item, true);
             }
@@ -87,7 +86,7 @@ class ViewPage extends Component {
     }
   }
   setItem(item, admin) {
-    console.log("i", item)
+    console.log("i", item, admin)
 
     const {
       type,

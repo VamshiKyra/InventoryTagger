@@ -21,7 +21,7 @@ import { emailChange, passwordChange, loginUser } from "./actions";
 import { Spinner, Styles, Button } from "./common";
 import LinearGradient from "react-native-linear-gradient";
 const { width, height } = Dimensions.get("window");
-const background = require("./Img/background.png");
+const background = require("./Img/app_background.png");
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -299,16 +299,8 @@ class Login extends Component {
               {this.props.loading ? (
                 <Spinner />
               ) : (
-                <Button label="Sign In" onClick={() => this.onSignIn()} />
-              )}
-              {/* <View style={styles.button}>
-                    {this.props.loading ? (
-                      <Spinner />
-                    ) : (
-                      <Text style={styles.buttonText}>Sign In</Text>
-                    )}
-                  </View> */}
-
+                  <Button label="Sign In" onClick={() => this.onSignIn()} />
+                )}
               <Text style={styles.errorTextStyle}></Text>
             </KeyboardAvoidingView>
             <View>

@@ -1,4 +1,4 @@
-import { SEARCH_LIST, SEARCH_TEXT, FILTER_TYPE, FILTER_USER, FILTER_DATE, SEARCH_LIST_COUNT } from "../actions/types";
+import { SEARCH_STATUS, SEARCH_LIST, SEARCH_TEXT, FILTER_COUNT, FILTER_TYPE, FILTER_USER, FILTER_DATE, SEARCH_LIST_COUNT } from "../actions/types";
 
 const INITIAL_STATE = {
     search_list: [],
@@ -6,7 +6,9 @@ const INITIAL_STATE = {
     filter_type: "",
     filter_user: "",
     filter_date: "",
-    search_count: "0"
+    search_count: "0",
+    search_status: false,
+    filter_count: "0"
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -23,6 +25,10 @@ export default (state = INITIAL_STATE, action) => {
             return { ...state, filter_date: action.payload };
         case SEARCH_LIST_COUNT:
             return { ...state, search_count: action.payload };
+        case SEARCH_STATUS:
+            return { ...state, search_status: action.payload };
+        case FILTER_COUNT:
+            return { ...state, filter_count: action.payload };
         default:
             return state;
     }

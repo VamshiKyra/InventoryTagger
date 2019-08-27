@@ -233,12 +233,13 @@ export const getAddress = (latitude, longitude) => {
   };
 };
 
-export const deleteInventory = uid => {
+export const deleteInventory = (uid, user_id) => {
   return dispatch => {
     const { currentUser } = firebase.auth();
+    let user = user_id ? user_id : currentUser.uid;
     firebase
       .database()
-      .ref(`/tagger/inventory/${currentUser.uid}`)
+      .ref(`/tagger/inventory/${user}`)
       .child(uid)
       .remove();
   };

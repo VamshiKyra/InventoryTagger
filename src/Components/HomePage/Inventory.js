@@ -179,7 +179,7 @@ class Inventory extends Component {
     this.props.adminPush(user);
   }
   render() {
-    const { list, admin_list, search_list } = this.props;
+    const { list, admin_list, search_list, search_status } = this.props;
     return (
       <Container>
         <Head navigation={this.props.navigation} />
@@ -203,7 +203,7 @@ class Inventory extends Component {
                   );
                 })
               }
-              {list && search_list.length == 0 &&
+              {list && !search_status &&
                 list.map((item, index) => {
                   return (
                     <Item
@@ -213,7 +213,7 @@ class Inventory extends Component {
                     />
                   );
                 })}{
-                admin_list && search_list.length == 0 && admin_list.map((item, index) => {
+                admin_list && !search_status && admin_list.map((item, index) => {
                   return (
                     <Item
                       key={index}
@@ -225,7 +225,7 @@ class Inventory extends Component {
               }
             </List>
           </Content>
-          <TouchableOpacity onPress={() => this.syncFiles()}>
+          {/* <TouchableOpacity onPress={() => this.syncFiles()}>
             <View style={Styles.syncButton}>
               <Icon
                 type="FontAwesome5"
@@ -233,7 +233,7 @@ class Inventory extends Component {
                 style={{ fontSize: 25, color: "#FFF" }}
               />
             </View>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </ImageBackground>
       </Container>
     );
@@ -242,13 +242,14 @@ class Inventory extends Component {
 const mapStateToProps = state => {
   const { list, users, admin_list } = state.inventorylist;
   const { offline } = state.auth;
-  const { search_list } = state.search;
+  const { search_list, search_status } = state.search;
   return {
     list,
     offline,
     users,
     admin_list,
-    search_list
+    search_list,
+    search_status
   };
 };
 const mapDispatchToProps = {
