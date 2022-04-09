@@ -16,7 +16,7 @@
     "formik": "^1.5.8",
     "geolib": "^3.0.4",
     "lodash": "^4.17.15",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "native-base": "^2.13.4",
     "react": "16.8.6",
     "react-native": "0.60.4",
